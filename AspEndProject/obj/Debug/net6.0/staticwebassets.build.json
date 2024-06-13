@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "t8YHs+97ACnDIvjPXiA5svjYP0O/ewJS0uuMrvIcNGE=",
+  "Hash": "LA8hLUErUlkSppPLUmlLTpKZsNEVsDpFOY5uvvryWD8=",
   "Source": "AspEndProject",
   "BasePath": "_content/AspEndProject",
   "Mode": "Default",
@@ -2242,23 +2242,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\156b2691-cbf9-4ea9-908b-7a4c7c228819-68a31088-c326-4553-ab55-966c19d95825 prodcut-1.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\58907bb8-0803-4078-bf00-39ae8fdb9f84-2ca4a23f-a8fc-4b12-b96c-6b88ac2ae375 01bcb076-6912-460e-aba7-3ee1b0c02abf-48862e46-eae2-4479-a8db-1bb1164211f3-cat1.webp",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/58907bb8-0803-4078-bf00-39ae8fdb9f84-2ca4a23f-a8fc-4b12-b96c-6b88ac2ae375 01bcb076-6912-460e-aba7-3ee1b0c02abf-48862e46-eae2-4479-a8db-1bb1164211f3-cat1.webp",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\58907bb8-0803-4078-bf00-39ae8fdb9f84-2ca4a23f-a8fc-4b12-b96c-6b88ac2ae375 01bcb076-6912-460e-aba7-3ee1b0c02abf-48862e46-eae2-4479-a8db-1bb1164211f3-cat1.webp"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\avatar.jpg",
