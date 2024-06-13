@@ -114,30 +114,32 @@ namespace AspEndProject.Areas.Admin.Controllers
                 return View(request);
             }
 
-            if (!request.Photo.CheckFileSize(200))
+            if (request.Photo != null)
             {
-                ModelState.AddModelError("Photo", "Image size must be 200kb");
-                return View(request.Photo);
-            }
+                if (!request.Photo.CheckFileSize(200))
+                {
+                    ModelState.AddModelError("Photo", "Image size must be 200kb");
+                    return View(request.Photo);
+                }
 
-            if (!request.Photo.CheckFileType("image/"))
-            {
-                ModelState.AddModelError("Photo", "Image format is wrong");
-                return View(request.Photo);
+                if (!request.Photo.CheckFileType("image/"))
+                {
+                    ModelState.AddModelError("Photo", "Image format is wrong");
+                    return View(request.Photo);
+                }
+                FileExtentions.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), serviceContent.Image);
+
+                string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
+                string path = Path.Combine(_env.WebRootPath, "img", fileName);
+                await request.Photo.SaveFileToLocalAsync(path);
+
+                serviceContent.Image = fileName;
             }
 
             if (serviceContent == null) { return NotFound(); }
 
-            FileExtentions.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), serviceContent.Image);
-
-            string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
-            string path = Path.Combine(_env.WebRootPath, "img", fileName);
-            await request.Photo.SaveFileToLocalAsync(path);
-
-
             serviceContent.Title = request.Title;
             serviceContent.Description = request.Description;
-            serviceContent.Image = fileName;
 
             await _context.SaveChangesAsync();
 

@@ -92,7 +92,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             Slider slider = await _context.Sliders.FirstOrDefaultAsync(m => m.Id == id);
             if (slider == null) return NotFound();
 
-            return View(new SliderUpdateVM { Id = slider.Id, Name = slider.Name, Image = slider.Image });
+            return View(new SliderUpdateVM { Name = slider.Name, Image = slider.Image });
 
 
         }
@@ -106,30 +106,32 @@ namespace AspEndProject.Areas.Admin.Controllers
                 return View(request);
             }
 
-            if (!request.Photo.CheckFileSize(200))
+            if (request.Photo != null)
             {
-                ModelState.AddModelError("Photo", "Image size must be 200kb");
-                return View(request.Photo);
-            }
+                if (!request.Photo.CheckFileSize(200))
+                {
+                    ModelState.AddModelError("Photo", "Image size must be 200kb");
+                    return View(request.Photo);
+                }
 
-            if (!request.Photo.CheckFileType("image/"))
-            {
-                ModelState.AddModelError("Photo", "Image format is wrong");
-                return View(request.Photo);
+                if (!request.Photo.CheckFileType("image/"))
+                {
+                    ModelState.AddModelError("Photo", "Image format is wrong");
+                    return View(request.Photo);
+                }
+
+                FileExtentions.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), existSlider.Image);
+
+                string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
+                string path = Path.Combine(_env.WebRootPath, "img", fileName);
+                await request.Photo.SaveFileToLocalAsync(path);
+
+                existSlider.Image = fileName;
             }
 
             if (existSlider == null) { return NotFound(); }
 
-            FileExtentions.DeleteFileFromLocalAsync(Path.Combine(_env.WebRootPath, "img"), existSlider.Image);
-
-            string fileName = Guid.NewGuid().ToString() + "-" + request.Photo.FileName;
-            string path = Path.Combine(_env.WebRootPath, "img", fileName);
-            await request.Photo.SaveFileToLocalAsync(path);
-
-
             existSlider.Name = request.Name;
-            existSlider.Image = fileName;
-
 
             await _context.SaveChangesAsync();
 
