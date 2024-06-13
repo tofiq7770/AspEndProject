@@ -1,0 +1,30 @@
+﻿@model FeatureUpdateVM
+
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update SliderInfo</h4>
+            <form class="forms-sample" method="post" asp-action="Update" enctype="multipart/form-data">
+               <div class="form-group">
+                    <label asp-for="Name" >Name</label>
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                    <span  class="text-danger mt-2" asp-validation-for="Name"></span>
+                </div>
+                <div class="mt-3 form-group">
+                    <label asp-for="Description">Description</label>
+                    <input asp-for="Description" class="form-control">
+                    <span class="text-danger mt-2" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Icon" >Icon</label>
+                    <input asp-for="Icon" type="text" class="form-control" placeholder=" <Icon/> ">
+                    <span  class="text-danger mt-2" asp-validation-for="Icon"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                <a class="btn btn-light" asp-area="Admin" asp-controller="Feature" asp-action="Index">Back</a>
+            </form>
+        </div>
+    </div>
+</div>

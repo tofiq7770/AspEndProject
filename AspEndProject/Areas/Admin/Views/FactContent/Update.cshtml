@@ -1,0 +1,30 @@
+﻿@model FactContentUpdateVM
+
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update FactContent</h4>
+            <form class="forms-sample" method="post" asp-action="Update" enctype="multipart/form-data">
+              <div class="form-group">
+                    <label asp-for="Title" >Title</label>
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Title">
+                    <span  class="text-danger mt-2" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="NumberInfo">NumberInfo</label>
+                    <input asp-for="NumberInfo" type="number" class="form-control" placeholder="NumberInfo">
+                    <span  class="text-danger mt-2" asp-validation-for="NumberInfo"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Icon" >Icon</label>
+                    <input asp-for="Icon" type="text" class="form-control" placeholder=" <Icon/> ">
+                    <span  class="text-danger mt-2" asp-validation-for="Icon"></span>
+                </div>
+                
+                <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                <a class="btn btn-light" asp-area="Admin" asp-controller="FactContent" asp-action="Index">Back</a>
+            </form>
+        </div>
+    </div>
+</div>

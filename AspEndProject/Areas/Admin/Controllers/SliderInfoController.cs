@@ -25,7 +25,19 @@ namespace AspEndProject.Areas.Admin.Controllers
         {
             return View();
         }
-
+        public async Task<IActionResult> Detail(int? id)
+        {
+            if (id is null) return BadRequest();
+            SliderInfo sliderInfo = await _context.SliderInfos.Where(c => c.Id == id).FirstOrDefaultAsync();
+            if (sliderInfo == null) return NotFound();
+            SliderInfoDetailVM model = new()
+            {
+                Id = sliderInfo.Id,
+                Title = sliderInfo.Title,
+                SubTitle = sliderInfo.SubTitle
+            };
+            return View(model);
+        }
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SliderInfoCreateVM sliderInfo)
@@ -47,9 +59,6 @@ namespace AspEndProject.Areas.Admin.Controllers
 
 
 
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return BadRequest();
@@ -76,13 +85,17 @@ namespace AspEndProject.Areas.Admin.Controllers
 
             if (sliderInfo == null) return NotFound();
 
-            return View(new BlogEditVM { Title = blog.Title, Description = blog.Description, Image = blog.Image, Date = blog.Date });
+            return View(new SliderInfoUpdateVM
+            {
+                Title = sliderInfo.Title,
+                SubTitle = sliderInfo.SubTitle
+            });
 
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(BlogEditVM blog, int? id)
+        public async Task<IActionResult> Update(SliderInfoUpdateVM sliderInfo, int? id)
         {
             if (!ModelState.IsValid)
             {
@@ -90,14 +103,12 @@ namespace AspEndProject.Areas.Admin.Controllers
             }
 
             if (id == null) return BadRequest();
-            Blog existBlog = await _context.Blogs.FirstOrDefaultAsync(m => m.Id == id);
+            SliderInfo existSliderInfo = await _context.SliderInfos.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (blog == null) return NotFound();
+            if (sliderInfo == null) return NotFound();
 
-            existBlog.Title = blog.Title;
-            existBlog.Description = blog.Description;
-            existBlog.Image = blog.Image;
-            existBlog.Date = blog.Date;
+            existSliderInfo.Title = sliderInfo.Title;
+            existSliderInfo.SubTitle = sliderInfo.SubTitle;
             await _context.SaveChangesAsync();
             return RedirectToAction("Index");
 
