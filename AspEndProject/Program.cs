@@ -1,4 +1,6 @@
 using AspEndProject.DAL;
+using AspEndProject.Services;
+using AspEndProject.Services.Interface;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,8 +11,11 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
 
-var app = builder.Build();
 
+builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+
+var app = builder.Build();
 
 app.UseHttpsRedirection();
 

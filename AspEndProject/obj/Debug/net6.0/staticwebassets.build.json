@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "DilIYWXK6J5RZXmzkrKg+7urjIqaCKi3V10fcncdCOk=",
+  "Hash": "HGeO2R2B7uHn6iIuW4ATqH+IRM2UKznS+3v91u4kqNQ=",
   "Source": "AspEndProject",
   "BasePath": "_content/AspEndProject",
   "Mode": "Default",
@@ -2225,23 +2225,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\style.css"
-    },
-    {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\30af1fa1-4e56-4d84-b2ff-dc0642959132-vegetable-item-2.jpg",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/30af1fa1-4e56-4d84-b2ff-dc0642959132-vegetable-item-2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\30af1fa1-4e56-4d84-b2ff-dc0642959132-vegetable-item-2.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\avatar.jpg",
