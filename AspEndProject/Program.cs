@@ -1,6 +1,8 @@
 using AspEndProject.DAL;
+using AspEndProject.Models;
 using AspEndProject.Services;
 using AspEndProject.Services.Interface;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +12,18 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<AppDbContext>(opt =>
 opt.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
+
+builder.Services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppDbContext>().AddDefaultTokenProviders();
+
+builder.Services.Configure<IdentityOptions>(opt =>
+{
+    opt.Password.RequireDigit = true;
+    opt.Password.RequiredUniqueChars = 1;
+    opt.Password.RequireLowercase = true;
+    opt.Password.RequireUppercase = true;
+    opt.Password.RequireNonAlphanumeric = true;
+    opt.User.RequireUniqueEmail = true;
+});
 
 
 builder.Services.AddScoped<ISettingService, SettingService>();
@@ -43,12 +57,16 @@ app.UseEndpoints(endpoints =>
 
 app.Run();
 
-public class Startup
-{
-    public void ConfigureServices(IServiceCollection services)
-        => services.AddDbContext<AppDbContext>();
 
-    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-    {
-    }
-}
+
+
+
+//public class Startup
+//{
+//    public void ConfigureServices(IServiceCollection services)
+//        => services.AddDbContext<AppDbContext>();
+
+//    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+//    {
+//    }
+//}
