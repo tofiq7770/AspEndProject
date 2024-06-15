@@ -27,6 +27,7 @@ builder.Services.Configure<IdentityOptions>(opt =>
 
 
 builder.Services.AddScoped<ISettingService, SettingService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 
 var app = builder.Build();

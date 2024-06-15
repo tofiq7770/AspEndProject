@@ -1,0 +1,40 @@
+﻿@model ProductDetailVM
+
+
+
+<div class="container mt-5 mx-3">
+
+    <div>
+      @foreach (var item in Model.Images)
+            {
+                if (item.IsMain == true)
+                {
+                    <div  style="position:relative; width:105px;height:95px; border-width:10px;border:solid;border-color:red;">
+                        <img style="position:absolute;width:100px;height:90px;" src="~/img/@item.Image" />
+                    </div>
+
+                }
+                else
+                {
+                    <img style="width:70px;height:60px;" class="mx-1 mt-5" src="~/img/@item.Image" />
+                }
+
+            }
+    </div>
+                        <h4 class="mt-3">  Name: @Model.Name<h4 />
+                        <h4>  Category:@Model.Category<h4 />
+                        <h4>   Price:@Model.Price<h4 />
+                        <h4>  Check:@Model.Check<h4 />
+                        <h4>  Description: @Model.Description<h4 />
+                        <h4>  Min weight: @Model.MinWeight<h4 />
+                        <h4>  Weight: @Model.Weight<h4 />
+                        <h4>  Origin: @Model.Origin<h4 />
+                        <h4>  Quality: @Model.Quality<h4 />
+
+    <div class=mt-4>
+
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="Product" asp-action="Index">Back</a>
+        <a class="btn btn-primary" asp-area="Admin" asp-controller="Product" asp-route-id="@Model.Id" asp-action="Update">Update</a>
+        <a class="btn btn-danger" asp-area="Admin" asp-controller="Product" asp-route-id="@Model.Id" asp-action="Delete">Delete</a>
+    </div>
+</div>

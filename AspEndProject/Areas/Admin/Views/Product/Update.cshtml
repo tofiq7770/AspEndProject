@@ -1,0 +1,96 @@
+﻿@model ProductUpdateVM
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Update Product</h4>
+            @*<img src="~/img/@Model.Images.FirstOrDefault(m=>m.IsMain)" />*@
+
+            @foreach (var item in Model.Images)
+            {
+                if (item.IsMain == true)
+                {
+                    <div  style="position:relative; width:105px;height:95px; border-width:10px;border:solid;border-color:red;">
+                        <img style="position:absolute;width:100px;height:90px;" src="~/img/@item.Image" />
+                    </div>
+
+                }
+                else
+                {
+                    <img style="width:70px;height:60px;" class="mx-1 mt-5" src="~/img/@item.Image" />
+                }
+
+            }
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+
+
+                <div class="mt-5 form-group">
+                    <label asp-for="Name">Name</label>
+                    <input asp-for="Name" type="text" class="form-control" placeholder="Name">
+                    <span class="text-danger mt-2" asp-validation-for="Name"></span>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label asp-for="Origin">Origin</label>
+                    <input asp-for="Origin" type="text" class="form-control" placeholder="Origin">
+                    <span class="text-danger mt-2" asp-validation-for="Origin"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <input asp-for="Description" type="text" class="form-control" placeholder="Description">
+                    <span class="text-danger mt-2" asp-validation-for="Description"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Price">Price</label>
+                    <input asp-for="Price" type="number" class="form-control" placeholder="Price">
+                    <span class="text-danger mt-2" asp-validation-for="Price"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Check">Check</label>
+                    <input asp-for="Check" type="text" class="form-control" placeholder="Check">
+                    <span class="text-danger mt-2" asp-validation-for="Check"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Quality">Quality</label>
+                    <input asp-for="Quality" type="text" class="form-control" placeholder="Quality">
+                    <span class="text-danger mt-2" asp-validation-for="Quality"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Weight">Weight</label>
+                    <input asp-for="Weight" type="text" class="form-control" placeholder="Weight">
+                    <span class="text-danger mt-2" asp-validation-for="Weight"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MinWeight">MinWeight</label>
+                    <input asp-for="MinWeight" type="text" class="form-control" placeholder="MinWeight">
+                    <span class="text-danger mt-2" asp-validation-for="MinWeight"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="CategoryId">Category</label>
+
+                    <select class="form-control text-black" asp-for="CategoryId" asp-items="@ViewBag.Categories">
+                    </select>
+                    <span class="text-danger mt-2" asp-validation-for="MinWeight"></span>
+                </div>
+                <div class="mt-3 form-group">
+                    <label asp-for="Photos">Images</label>
+                    <input asp-for="Photos" class="form-control">
+                    <span class="text-danger mt-2" asp-validation-for="Photos"></span>
+                </div>
+
+                <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                <a class="btn btn-light" asp-area="Admin" asp-controller="Product" asp-action="Index">Back</a>
+            </form>
+        </div>
+    </div>
+</div>

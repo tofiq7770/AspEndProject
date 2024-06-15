@@ -1,0 +1,34 @@
+﻿@model ProductCreateVM
+
+
+<h1>Create</h1>
+<div class="container">
+    <div class="card mt-4 w-100" style="display:flex;align-items:center;">
+        <h3 class="card-header">Create</h3>
+        <div>
+            <form asp-action="Create" asp-controller="Product" asp-area="Admin" method="post" enctype="multipart/form-data">
+                <input asp-for=Name class="form-control mt-3" placeholder="Name" maxlength="20">
+                <input asp-for=Description class="form-control mt-3" placeholder="Description..." maxlength="120">
+                <input asp-for=MinWeight class="form-control mt-3" placeholder="MinWeight..." maxlength="20">
+                <input asp-for=Weight class="form-control mt-3" placeholder="Weight..." maxlength="20">
+                <input asp-for=Origin class="form-control mt-3" placeholder="Origin..." maxlength="20">
+                <input asp-for=Quality class="form-control mt-3" placeholder="Quality..." maxlength="20">
+                <input asp-for=Check class="form-control mt-3" placeholder="Check..." maxlength="20">
+
+                <input asp-for=Price type="number" class="form-control mt-3" placeholder="Price..." maxlength="20">
+                <select class="form-control text-black mt-3" asp-for="CategoryId" asp-items="@ViewBag.Categories">
+                </select>
+                <label class="mt-4">Images</label>
+                <input multiple asp-for="Images" class="form-control ">
+                <span class="text-danger" asp-validation-for="Images"></span>
+
+                <button type="submit" class="btn btn-success mt-5">Submit</button>
+                <a asp-action="Index" asp-controller="Product" class="btn btn-info mt-5">Cancel</a>
+            </form>
+
+
+        </div>
+    </div>
+
+</div>
+

@@ -21,7 +21,7 @@ namespace AspEndProject.Areas.Admin.Controllers
         [HttpGet]
         public async Task<IActionResult> Index()
         {
-            return View(await _categoryService.GetALlCategories());
+            return View(await _categoryService.GetAllCategories());
         }
 
 
