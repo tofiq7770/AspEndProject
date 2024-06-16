@@ -127,16 +127,20 @@
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item" category-id="@item.CategoryId">
                                             <div class="fruite-img">
-                                                <img style="height: 214.2px;" src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" class="img-fluid w-100 rounded-top" alt="">
+                                                <img   src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" class="img-fluid w-100 rounded-top" alt="">
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.Category.Name</div>
-                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom item">
                                                 <h4>@item.Name</h4>
                                                 <p>@item.Description</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">$@item.Price.ToString("N2") / kg</p>
-                                                    <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id">
-                                                        <button class="btn border border-secondary rounded-pill px-3 text-primary"><i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart</button>
+                                                    <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                                        <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary">
+
+                                                            </i> Add to cart
+                                                        </button>
                                                     </form>
                                                 </div>
                                             </div>
@@ -144,6 +148,8 @@
                                     </div>
                                 }
                             </div>
+
+
                         </div>
                     </div>
                 </div>

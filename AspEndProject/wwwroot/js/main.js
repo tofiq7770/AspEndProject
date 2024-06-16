@@ -45,7 +45,7 @@
                     success: function (res) {
                         Swal.fire({
                             title: "Deleted!",
-                            text: "Your file has been deleted.",
+                            text: "Your product was removed from cart.",
                             icon: "success"
                         });
 
@@ -55,6 +55,14 @@
             }
         });
     });
+
+
+
+
+
+
+
+
 
     // Spinner
     var spinner = function () {
