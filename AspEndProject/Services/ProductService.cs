@@ -22,7 +22,11 @@ namespace AspEndProject.Services
 
         public async Task<List<Product>> GetAllAsync()
         {
-            return await _context.Products.Include(m => m.Category).Include(m => m.ProductImages).OrderByDescending(m => m.Id).ToListAsync();
+            return await _context.Products
+                .Include(m => m.Category)
+                .Include(m => m.ProductImages)
+                .OrderByDescending(m => m.Id)
+                .ToListAsync();
         }
         public async Task<Product> GetByIdAsync(int id)
         {

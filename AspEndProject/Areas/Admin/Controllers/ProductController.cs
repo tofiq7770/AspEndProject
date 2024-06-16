@@ -80,7 +80,7 @@ namespace AspEndProject.Areas.Admin.Controllers
         public async Task<IActionResult> Create(ProductCreateVM request)
         {
             ViewBag.Categories = await _categoryService.GetAllBySelectedAsync();
-            //if (!ModelState.IsValid) return View();
+            if (!ModelState.IsValid) return View();
 
             foreach (var item in request.Images)
             {

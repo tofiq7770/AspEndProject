@@ -16,6 +16,7 @@ namespace AspEndProject.Models
         [Column(TypeName = "decimal(18, 6)")]
         public decimal MinWeight { get; set; }
         public ICollection<ProductImage> ProductImages { get; set; }
+        public ICollection<BasketProduct> BasketProducts { get; set; }
         public ICollection<Review> Reviews { get; set; }
 
     }
