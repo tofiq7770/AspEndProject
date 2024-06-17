@@ -10,6 +10,7 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.31",
           "Microsoft.EntityFrameworkCore": "6.0.31",
+          "Microsoft.EntityFrameworkCore.Design": "6.0.31",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.31",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.31",
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": "6.0.16",

@@ -127,7 +127,9 @@
                                     <div class="col-md-6 col-lg-4 col-xl-3">
                                         <div class="rounded position-relative fruite-item" category-id="@item.CategoryId">
                                             <div class="fruite-img">
-                                                <img   src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" class="img-fluid w-100 rounded-top" alt="">
+                                                <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@item.Id">
+                                                    <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain)?.Image" class="img-fluid w-100 rounded-top" alt="">
+                                                </a>
                                             </div>
                                             <div class="text-white bg-secondary px-3 py-1 rounded position-absolute" style="top: 10px; left: 10px;">@item.Category.Name</div>
                                             <div class="p-4 border border-secondary border-top-0 rounded-bottom item">
@@ -138,7 +140,6 @@
                                                     <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
                                                         <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
                                                             <i class="fa fa-shopping-bag me-2 text-primary">
-
                                                             </i> Add to cart
                                                         </button>
                                                     </form>
