@@ -17,6 +17,7 @@ namespace AspEndProject.Controllers
                               ICategoryService categoryService,
                               AppDbContext context)
         {
+
             _context = context;
             _productService = productService;
             _categoryService = categoryService;
@@ -24,6 +25,7 @@ namespace AspEndProject.Controllers
 
         public async Task<IActionResult> Index()
         {
+
             HomeVM model = new()
             {
 

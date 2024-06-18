@@ -47,13 +47,14 @@ namespace AspEndProject.Controllers
                 return View(request);
             }
 
-            await _userManager.AddToRoleAsync(user, UserRole.Admin.ToString());
+            await _userManager.AddToRoleAsync(user, UserRole.SuperAdmin.ToString());
             await _signInManager.SignInAsync(user, false);
             return RedirectToAction("Index", "Home");
         }
         [HttpGet]
         public IActionResult Login()
         {
+
             return View();
         }
         [HttpPost]
@@ -81,7 +82,10 @@ namespace AspEndProject.Controllers
                 ModelState.AddModelError(string.Empty, "Email, Username or Password is incorrect");
                 return View();
             }
+
+
             await _signInManager.SignInAsync(user, login.IsRemember);
+
             return RedirectToAction("Index", "Home");
         }
 

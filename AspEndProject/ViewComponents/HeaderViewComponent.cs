@@ -8,13 +8,17 @@ namespace AspEndProject.ViewComponents
     {
         private readonly ISettingService _settingService;
 
+
         public HeaderViewComponent(ISettingService settingService)
         {
             _settingService = settingService;
+
         }
 
         public async Task<IViewComponentResult> InvokeAsync()
         {
+
+
             Dictionary<string, string> settings = await _settingService.GetAll();
 
             HeaderVM model = new()
