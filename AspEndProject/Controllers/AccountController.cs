@@ -48,6 +48,7 @@ namespace AspEndProject.Controllers
             }
 
             await _userManager.AddToRoleAsync(user, UserRole.SuperAdmin.ToString());
+
             await _signInManager.SignInAsync(user, false);
             return RedirectToAction("Index", "Home");
         }

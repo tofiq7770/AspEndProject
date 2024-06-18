@@ -39,9 +39,18 @@ namespace AspEndProject.Controllers
         }
         public async Task<IActionResult> ProductDetail(int? Id)
         {
-            var data = await _productService.GetByIdAsync((int)Id);
 
-            return View(data);
+            List<Product> products = await _productService.GetAllAsyncAscending();
+            Product product = await _productService.GetByIdAsync((int)Id);
+            List<CategoryVM> categories = await _categoryService.GetAllCategoriesAsc();
+            ShopVM datas = new()
+            {
+                Products = products,
+                Product = product,
+                Categories = categories
+            };
+
+            return View(datas);
         }
     }
 }
