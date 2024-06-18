@@ -29,6 +29,8 @@ namespace AspEndProject.Controllers
 
                 Products = await _productService.GetAllAsyncAscending(),
                 Categories = await _categoryService.GetAllCategoriesAsc(),
+                Sliders = await _context.Sliders.ToListAsync(),
+                SliderInfo = await _context.SliderInfos.FirstOrDefaultAsync(),
                 FactContents = await _context.FactContents.ToListAsync(),
                 ServiceContents = await _context.ServiceContents.ToListAsync(),
                 Fresh = await _context.Freshs.FirstOrDefaultAsync(),

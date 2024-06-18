@@ -199,10 +199,9 @@
                                             <p>@item.Description</p>
                                             <div class="d-flex justify-content-between flex-lg-wrap">
                                                 <p class="text-dark fs-5 fw-bold mb-0">$@item.Price.ToString("N2") / kg</p>
-                                                <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
-                                                    <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
-                                                        <i class="fa fa-shopping-bag me-2 text-primary">
-                                                        </i> Add to cart
+                                                <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                                    <button type="submit" class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                                     </button>
                                                 </form>
                                             </div>

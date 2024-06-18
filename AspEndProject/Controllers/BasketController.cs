@@ -52,6 +52,7 @@ namespace AspEndProject.Controllers
                     });
                 }
             }
+            ViewBag.BasketProduct = basketListVMs;
 
             return View(basketListVMs);
         }
@@ -80,7 +81,7 @@ namespace AspEndProject.Controllers
                 basketProduct.Quantity++;
                 await _context.SaveChangesAsync();
 
-                return Ok();
+                return Json(new { success = true, message = "Product quantity updated in cart." });
             }
 
             if (basket != null)
@@ -92,7 +93,7 @@ namespace AspEndProject.Controllers
                 });
 
                 await _context.SaveChangesAsync();
-                return Ok();
+                return Json(new { success = true, message = "Product added to cart." });
             }
 
             Basket newBasket = new()
@@ -113,7 +114,7 @@ namespace AspEndProject.Controllers
             await _context.BasketProducts.AddAsync(newBasketProduct);
             await _context.SaveChangesAsync();
 
-            return Ok();
+            return Json(new { success = true, message = "Product added to cart." });
         }
 
         [HttpPost]

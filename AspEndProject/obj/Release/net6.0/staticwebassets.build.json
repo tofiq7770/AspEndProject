@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zl61y8OKVabY4G66/g81A4XBvOR2Z0q3FLlpH1xD5PU=",
+  "Hash": "9UMUm4/eflMjPhYdKxLesuDwBtTpgUYIln9fCKDh04Q=",
   "Source": "AspEndProject",
   "BasePath": "_content/AspEndProject",
   "Mode": "Default",
@@ -2346,6 +2346,23 @@
       "OriginalItemSpec": "wwwroot\\img\\2dcc4434-f098-4e3d-882f-d3b6f03d9b86-baner-1.png"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\41535737-a6ef-4092-b175-3fc3ec77bb6c-hero-img-1.png",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/41535737-a6ef-4092-b175-3fc3ec77bb6c-hero-img-1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\41535737-a6ef-4092-b175-3fc3ec77bb6c-hero-img-1.png"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\4b4a248c-7a09-479b-bb83-d3c117e71383-featur-3.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -2361,6 +2378,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\4b4a248c-7a09-479b-bb83-d3c117e71383-featur-3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\506d974f-1ef2-4f56-81f9-5adfa196920b-hero-img-2.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/506d974f-1ef2-4f56-81f9-5adfa196920b-hero-img-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\506d974f-1ef2-4f56-81f9-5adfa196920b-hero-img-2.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\53e01ecb-5b63-4c30-8b0b-46f42d3d2f40-best-product-5.jpg",

@@ -19,27 +19,33 @@
 }
 <!-- Hero Start -->
 <div class="container-fluid py-5 mb-5 hero-header">
-    <div class="container py-5">
+      <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-md-12 col-lg-7">
-                <h4 class="mb-3 text-secondary">100% Organic Foods</h4>
-                <h1 class="mb-5 display-3 text-primary">Organic Veggies & Fruits Foods</h1>
+                <h4 class="mb-3 text-secondary">@Model.SliderInfo.SubTitle</h4>
+                <h1 class="mb-5 display-3 text-primary">@Model.SliderInfo.Title</h1>
                 <div class="position-relative mx-auto">
-                    <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="text" placeholder="Search">
+                    <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number" placeholder="Search">
                     <button type="submit" class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100" style="top: 0; right: 25%;">Submit Now</button>
                 </div>
             </div>
             <div class="col-md-12 col-lg-5">
                 <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                     <div class="carousel-inner" role="listbox">
-                        <div class="carousel-item active rounded">
-                            <img src="~/img/hero-img-1.png" class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
-                            <a href="#" class="btn px-4 py-2 text-white rounded">Fruites</a>
-                        </div>
-                        <div class="carousel-item rounded">
-                            <img src="~/img/hero-img-2.jpg" class="img-fluid w-100 h-100 rounded" alt="Second slide">
-                            <a href="#" class="btn px-4 py-2 text-white rounded">Vesitables</a>
-                        </div>
+                        
+                        @foreach( var item in Model.Sliders){
+                            string active = "active";
+                            if (item != Model.Sliders.FirstOrDefault(item))
+                            {
+                                active = "";
+                            }
+                            <div class="carousel-item rounded @active">
+                                <img src="~/img/@item.Image" class="img-fluid w-100 h-100 rounded" >
+                                <a href="#" class="btn px-4 py-2 text-white rounded">@item.Name</a>
+                            </div>
+
+                        }
+
                     </div>
                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselId" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -125,12 +131,19 @@
                                                 <p>@item.Description</p>
                                                 <div class="d-flex justify-content-between flex-lg-wrap">
                                                     <p class="text-dark fs-5 fw-bold mb-0">$@item.Price.ToString("N2") / kg</p>
-                                                    <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
-                                                        <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
-                                                            <i class="fa fa-shopping-bag me-2 text-primary">
-                                                            </i> Add to cart
+                                                    <!-- Your existing HTML structure -->
+                                                <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                                        <button type="submit" class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                                            <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                                         </button>
                                                     </form>
+
+                                                    @* <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                                        <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                                        <i class="fa fa-shopping-bag me-2 text-primary">
+                                                        </i> Add to cart
+                                                        </button>
+                                                        </form>*@
                                                 </div>
                                             </div>
                                         </div>
@@ -193,12 +206,12 @@
                             <p>@item.Description</p>
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <p class="text-dark fs-5 fw-bold mb-0">$ @item.Price.ToString("N2") / kg</p>
-                                <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
-                                    <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
-                                        <i class="fa fa-shopping-bag me-2 text-primary">
-                                        </i> Add to cart
+                                <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                    <button type="submit" class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                     </button>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -264,12 +277,12 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                                 <h4 class="mb-3">@item.Price.ToString("N2")$</h4>
-                                <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
-                                    <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
-                                        <i class="fa fa-shopping-bag me-2 text-primary">
-                                        </i> Add to cart
+                                <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                    <button type="submit" class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                        <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                     </button>
                                 </form>
+
                             </div>
                         </div>
                     </div>
@@ -291,12 +304,12 @@
                                 <i class="fas fa-star"></i>
                             </div>
                             <h4 class="mb-3">@item.Price.ToString("N2")$</h4>
-                            <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
-                                <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
-                                    <i class="fa fa-shopping-bag me-2 text-primary">
-                                    </i> Add to cart
+                            <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
+                                <button type="submit" class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
+                                    <i class="fa fa-shopping-bag me-2 text-primary"></i> Add to cart
                                 </button>
                             </form>
+
                         </div>
                     </div>
                 </div>
@@ -310,16 +323,16 @@
     <div class="container">
         <div class="bg-light p-5 rounded">
             <div class="row g-4 justify-content-center">
-              @foreach (var item in Model.FactContents)
-              {
+                @foreach (var item in Model.FactContents)
+                {
                     <div class="col-md-6 col-lg-6 col-xl-3">
-                    <div class="counter bg-white rounded p-5">
-                        @Html.Raw(item.Icon)
-                        <h4>@item.Title</h4>
-                        <h1>@item.NumberInfo</h1>
+                        <div class="counter bg-white rounded p-5">
+                            @Html.Raw(item.Icon)
+                            <h4>@item.Title</h4>
+                            <h1>@item.NumberInfo</h1>
+                        </div>
                     </div>
-                </div>
-              }
+                }
             </div>
         </div>
     </div>

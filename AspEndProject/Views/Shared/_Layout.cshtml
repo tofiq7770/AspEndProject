@@ -22,6 +22,18 @@
     <link href="~/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
 
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.min.css">
+
+    <!-- jQuery (if not already included) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- SweetAlert JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.6/dist/sweetalert2.all.min.js"></script>
+
+
+
+
     <!-- Customized Bootstrap Stylesheet -->
     <link href="~/css/bootstrap.min.css" rel="stylesheet">
 
@@ -41,7 +53,44 @@
 
     @await Component.InvokeAsync("Footer")
 
+    <script>
+    $(function () {
+        $('form[id^="addToCartForm-"]').submit(function (event) {
+            event.preventDefault(); // Prevent the form from submitting normally
 
+            var form = $(this);
+            var url = form.attr('action');
+            var productId = form.attr('asp-route-productId');
+
+            $.post(url, { productId: productId })
+                .done(function (response) {
+                    if (response.success) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            showConfirmButton: false,
+                            timer: 800
+                        }).then(function () {
+                        });
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'You Should Login First'
+                        });
+                    }
+                })
+                .fail(function () {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Failed to add product to cart. Please try again later.'
+                    });
+                });
+        });
+    });
+</script>
 
 
     <!-- JavaScript Libraries -->
@@ -57,4 +106,6 @@
 </body>
 
 </html>
+
+
 
