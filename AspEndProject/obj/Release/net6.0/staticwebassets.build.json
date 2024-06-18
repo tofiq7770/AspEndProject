@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "XVYXeB8i5OXQ/erpuh3ghDUmx366fsmL+wcGaVurYh4=",
+  "Hash": "zl61y8OKVabY4G66/g81A4XBvOR2Z0q3FLlpH1xD5PU=",
   "Source": "AspEndProject",
   "BasePath": "_content/AspEndProject",
   "Mode": "Default",
@@ -2227,12 +2227,12 @@
       "OriginalItemSpec": "wwwroot\\css\\style.css"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\125eb32e-a314-4936-b369-bb4b8da32b83-fruite-item-4.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\0b1d5d6d-e116-463e-a380-ecb4286c1a3f-best-product-4.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
       "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/125eb32e-a314-4936-b369-bb4b8da32b83-fruite-item-4.jpg",
+      "RelativePath": "img/0b1d5d6d-e116-463e-a380-ecb4286c1a3f-best-product-4.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2241,7 +2241,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\125eb32e-a314-4936-b369-bb4b8da32b83-fruite-item-4.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\0b1d5d6d-e116-463e-a380-ecb4286c1a3f-best-product-4.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\12ba3697-fabf-4783-b1f3-bc63ba57c7cb-featur-3.jpg",
@@ -2261,23 +2261,6 @@
       "OriginalItemSpec": "wwwroot\\img\\12ba3697-fabf-4783-b1f3-bc63ba57c7cb-featur-3.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\2134f70a-8f45-4005-93cc-3aaaac66f8f0-fruite-item-1.jpg",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/2134f70a-8f45-4005-93cc-3aaaac66f8f0-fruite-item-1.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\2134f70a-8f45-4005-93cc-3aaaac66f8f0-fruite-item-1.jpg"
-    },
-    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\22d07676-5308-4c8a-8b86-ed20f4e2c816-vegetable-item-4.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -2293,6 +2276,57 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\22d07676-5308-4c8a-8b86-ed20f4e2c816-vegetable-item-4.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\25706631-b04e-4ad1-8a06-a2cab8344bf0-fruite-item-1.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/25706631-b04e-4ad1-8a06-a2cab8344bf0-fruite-item-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\25706631-b04e-4ad1-8a06-a2cab8344bf0-fruite-item-1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\2a1e643d-ef30-4303-9153-c8a0df2e7e02-best-product-6.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/2a1e643d-ef30-4303-9153-c8a0df2e7e02-best-product-6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\2a1e643d-ef30-4303-9153-c8a0df2e7e02-best-product-6.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\2aea6764-495f-41ae-b508-ddbb57f83f43-fruite-item-6.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/2aea6764-495f-41ae-b508-ddbb57f83f43-fruite-item-6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\2aea6764-495f-41ae-b508-ddbb57f83f43-fruite-item-6.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\2dcc4434-f098-4e3d-882f-d3b6f03d9b86-baner-1.png",
@@ -2312,23 +2346,6 @@
       "OriginalItemSpec": "wwwroot\\img\\2dcc4434-f098-4e3d-882f-d3b6f03d9b86-baner-1.png"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\3c7727fb-f87b-4485-a3ce-1f77b1fc44b3-fruite-item-6.jpg",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/3c7727fb-f87b-4485-a3ce-1f77b1fc44b3-fruite-item-6.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\3c7727fb-f87b-4485-a3ce-1f77b1fc44b3-fruite-item-6.jpg"
-    },
-    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\4b4a248c-7a09-479b-bb83-d3c117e71383-featur-3.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -2344,6 +2361,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\4b4a248c-7a09-479b-bb83-d3c117e71383-featur-3.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\53e01ecb-5b63-4c30-8b0b-46f42d3d2f40-best-product-5.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/53e01ecb-5b63-4c30-8b0b-46f42d3d2f40-best-product-5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\53e01ecb-5b63-4c30-8b0b-46f42d3d2f40-best-product-5.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\5a6d4df7-2e68-4d96-840a-5e24a79df9a9-fruite-item-3.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/5a6d4df7-2e68-4d96-840a-5e24a79df9a9-fruite-item-3.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\5a6d4df7-2e68-4d96-840a-5e24a79df9a9-fruite-item-3.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\6022cd2f-69f8-44e1-b998-dc7335e29015-vegetable-item-5.jpg",
@@ -2363,6 +2414,23 @@
       "OriginalItemSpec": "wwwroot\\img\\6022cd2f-69f8-44e1-b998-dc7335e29015-vegetable-item-5.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\622acbd9-74e8-4d45-b363-617de3fb3a97-best-product-1.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/622acbd9-74e8-4d45-b363-617de3fb3a97-best-product-1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\622acbd9-74e8-4d45-b363-617de3fb3a97-best-product-1.jpg"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\6463bcdc-b10f-403b-8d01-7e72c1bbd165-vegetable-item-6.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -2378,40 +2446,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\6463bcdc-b10f-403b-8d01-7e72c1bbd165-vegetable-item-6.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\69904482-c682-4430-93c5-f92f7ca561c1-fruite-item-3.jpg",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/69904482-c682-4430-93c5-f92f7ca561c1-fruite-item-3.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\69904482-c682-4430-93c5-f92f7ca561c1-fruite-item-3.jpg"
-    },
-    {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\6efa60e3-59d7-4fd7-9035-9ed77550b1d6-best-product-4.jpg",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/6efa60e3-59d7-4fd7-9035-9ed77550b1d6-best-product-4.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\6efa60e3-59d7-4fd7-9035-9ed77550b1d6-best-product-4.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\78a7867c-17c3-410a-8955-35b90634e2be-featur-1.jpg",
@@ -2431,23 +2465,6 @@
       "OriginalItemSpec": "wwwroot\\img\\78a7867c-17c3-410a-8955-35b90634e2be-featur-1.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\79177fc1-57c1-4b71-b652-e6d2d0f44606-fruite-item-2.jpg",
-      "SourceId": "AspEndProject",
-      "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
-      "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/79177fc1-57c1-4b71-b652-e6d2d0f44606-fruite-item-2.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\79177fc1-57c1-4b71-b652-e6d2d0f44606-fruite-item-2.jpg"
-    },
-    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -2465,12 +2482,12 @@
       "OriginalItemSpec": "wwwroot\\img\\81a82fb1-bbf8-4d7d-8bf1-4f6e82618be9-featur-2.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\8583e248-51be-4cfc-aaee-27973148c829-fruite-item-5.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\81b21c9a-9224-4824-b3bf-3fd4310bb7c3-best-product-3.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
       "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/8583e248-51be-4cfc-aaee-27973148c829-fruite-item-5.jpg",
+      "RelativePath": "img/81b21c9a-9224-4824-b3bf-3fd4310bb7c3-best-product-3.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2479,7 +2496,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\8583e248-51be-4cfc-aaee-27973148c829-fruite-item-5.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\81b21c9a-9224-4824-b3bf-3fd4310bb7c3-best-product-3.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\avatar.jpg",
@@ -2652,6 +2669,40 @@
       "OriginalItemSpec": "wwwroot\\img\\best-product-6.jpg"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\c2193096-e461-43df-98e9-e16ec97e81f3-fruite-item-2.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/c2193096-e461-43df-98e9-e16ec97e81f3-fruite-item-2.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\c2193096-e461-43df-98e9-e16ec97e81f3-fruite-item-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\cab3233d-b444-40b7-89ea-27aca95d4833-fruite-item-5.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/cab3233d-b444-40b7-89ea-27aca95d4833-fruite-item-5.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\cab3233d-b444-40b7-89ea-27aca95d4833-fruite-item-5.jpg"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\cart-page-header-img.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -2669,12 +2720,12 @@
       "OriginalItemSpec": "wwwroot\\img\\cart-page-header-img.jpg"
     },
     {
-      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\f02e55a3-9365-4058-9060-8958e986e757-best-product-2.jpg",
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\ea541a84-de78-48fd-8914-81a672f7bf1d-best-product-2.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
       "BasePath": "_content/AspEndProject",
-      "RelativePath": "img/f02e55a3-9365-4058-9060-8958e986e757-best-product-2.jpg",
+      "RelativePath": "img/ea541a84-de78-48fd-8914-81a672f7bf1d-best-product-2.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -2683,7 +2734,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\img\\f02e55a3-9365-4058-9060-8958e986e757-best-product-2.jpg"
+      "OriginalItemSpec": "wwwroot\\img\\ea541a84-de78-48fd-8914-81a672f7bf1d-best-product-2.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\fa9ee4e5-389a-4381-b412-c9a0db21212a-fruite-item-4.jpg",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/fa9ee4e5-389a-4381-b412-c9a0db21212a-fruite-item-4.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\fa9ee4e5-389a-4381-b412-c9a0db21212a-fruite-item-4.jpg"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\featur-1.jpg",
