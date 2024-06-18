@@ -20,6 +20,11 @@ namespace AspEndProject.Services
             List<Category> categories = await _context.Categories.OrderByDescending(m => m.Id).ToListAsync();
             return categories.Select(m => new CategoryVM { Id = m.Id, Name = m.Name }).ToList();
         }
+        public async Task<List<CategoryVM>> GetAllCategoriesAsc()
+        {
+            List<Category> categories = await _context.Categories.OrderBy(m => m.Id).ToListAsync();
+            return categories.Select(m => new CategoryVM { Id = m.Id, Name = m.Name }).ToList();
+        }
 
         public async Task<SelectList> GetAllBySelectedAsync()
         {

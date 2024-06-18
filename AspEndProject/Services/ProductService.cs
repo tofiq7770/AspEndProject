@@ -28,6 +28,14 @@ namespace AspEndProject.Services
                 .OrderByDescending(m => m.Id)
                 .ToListAsync();
         }
+        public async Task<List<Product>> GetAllAsyncAscending()
+        {
+            return await _context.Products
+                .Include(m => m.Category)
+                .Include(m => m.ProductImages)
+                .OrderBy(m => m.Id)
+                .ToListAsync();
+        }
         public async Task<Product> GetByIdAsync(int id)
         {
             return await _context.Products.Include(m => m.Category)

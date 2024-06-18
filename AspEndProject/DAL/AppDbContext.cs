@@ -22,6 +22,7 @@ namespace AspEndProject.DAL
         public DbSet<Review> Reviews { get; set; }
         public DbSet<Basket> Baskets { get; set; }
         public DbSet<BasketProduct> BasketProducts { get; set; }
+        public DbSet<Fresh> Freshs { get; set; }
 
     }
 }

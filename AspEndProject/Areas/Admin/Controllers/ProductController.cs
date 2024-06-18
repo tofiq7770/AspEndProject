@@ -153,7 +153,19 @@ namespace AspEndProject.Areas.Admin.Controllers
                     IsMain = item.IsMain
                 });
             }
-            return View(new ProductUpdateVM { Name = product.Name, Description = product.Description, Images = productImage, Weight = product.Weight, Price = product.Price, Origin = product.Origin, Check = product.Сheck, Quality = product.Quality, MinWeight = product.MinWeight });
+            return View(new ProductUpdateVM
+            {
+                Name = product.Name,
+                Description = product.Description,
+                Images = productImage,
+                Weight = product.Weight,
+                Price = product.Price,
+                Origin = product.Origin,
+                Check = product.Сheck,
+                Quality = product.Quality,
+                MinWeight = product.MinWeight,
+                CategoryId = product.CategoryId
+            });
 
         }
 

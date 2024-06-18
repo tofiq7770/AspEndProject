@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AspEndProject.ViewModels.ServiceContent
+namespace AspEndProject.ViewModels.ServiceContents
 {
     public class ServiceContentCreateVM
     {

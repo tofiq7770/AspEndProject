@@ -1,7 +1,7 @@
 ﻿using AspEndProject.DAL;
 using AspEndProject.Helpers.Extentions;
 using AspEndProject.Models;
-using AspEndProject.ViewModels.ServiceContent;
+using AspEndProject.ViewModels.ServiceContents;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,16 +1,23 @@
-﻿using AspEndProject.Services.Interface;
+﻿using AspEndProject.DAL;
+using AspEndProject.Services.Interface;
 using AspEndProject.ViewModels.Home;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace AspEndProject.Controllers
 {
     public class HomeController : Controller
     {
+
+        private readonly AppDbContext _context;
         private readonly IProductService _productService;
         private readonly ICategoryService _categoryService;
 
-        public HomeController(IProductService productService, ICategoryService categoryService)
+        public HomeController(IProductService productService,
+                              ICategoryService categoryService,
+                              AppDbContext context)
         {
+            _context = context;
             _productService = productService;
             _categoryService = categoryService;
         }
@@ -19,8 +26,13 @@ namespace AspEndProject.Controllers
         {
             HomeVM model = new()
             {
-                Products = await _productService.GetAllAsync(),
-                Categories = await _categoryService.GetAllCategories()
+
+                Products = await _productService.GetAllAsyncAscending(),
+                Categories = await _categoryService.GetAllCategoriesAsc(),
+                FactContents = await _context.FactContents.ToListAsync(),
+                ServiceContents = await _context.ServiceContents.ToListAsync(),
+                Fresh = await _context.Freshs.FirstOrDefaultAsync(),
+                Features = await _context.Features.ToListAsync()
             };
 
             return View(model);

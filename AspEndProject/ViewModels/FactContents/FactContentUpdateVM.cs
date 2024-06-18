@@ -1,9 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace AspEndProject.ViewModels.FactContent
+namespace AspEndProject.ViewModels.FactContents
 {
-    public class FactContentCreateVM
+    public class FactContentUpdateVM
     {
+
         [Required]
         public string Icon { get; set; }
         [Required]

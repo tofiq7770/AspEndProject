@@ -1,0 +1,44 @@
+﻿@model FreshCreateVM
+
+
+<div class="col-md-6 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Create Fresh</h4>
+            <form class="forms-sample" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label asp-for="Title">Title</label>
+                    <input asp-for="Title" type="text" class="form-control" placeholder="Title">
+                    <span class="text-danger mt-2" asp-validation-for="Title"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="SubTitle">SubTitle</label>
+                    <input asp-for="SubTitle" type="text" class="form-control" placeholder="SubTitle">
+                    <span class="text-danger mt-2" asp-validation-for="SubTitle"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description">Description</label>
+                    <input asp-for="Description" type="text" class="form-control" placeholder="Description">
+                    <span class="text-danger mt-2" asp-validation-for="Description"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceFirst">PriceFirst</label>
+                    <input asp-for="PriceFirst" type="number" class="form-control" placeholder="PriceFirst">
+                    <span class="text-danger mt-2" asp-validation-for="PriceFirst"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="PriceSecond">PriceSecond</label>
+                    <input asp-for="PriceSecond" type="number" class="form-control" placeholder="PriceSecond">
+                    <span class="text-danger mt-2" asp-validation-for="PriceSecond"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image">Image</label>
+                    <input asp-for="Image" class="form-control">
+                    <span class="text-danger mt-2" asp-validation-for="Image"></span>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary me-2">Submit</button>
+                <a class="btn btn-light" asp-area="Admin" asp-controller="Fresh" asp-action="Index">Back</a>
+            </form>
+        </div>
+    </div>
+</div>

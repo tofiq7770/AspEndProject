@@ -1,6 +1,6 @@
 ﻿using AspEndProject.DAL;
 using AspEndProject.Models;
-using AspEndProject.ViewModels.FactContent;
+using AspEndProject.ViewModels.FactContents;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 

@@ -1,4 +1,4 @@
-﻿namespace AspEndProject.ViewModels.FactContent
+﻿namespace AspEndProject.ViewModels.FactContents
 {
     public class FactContentDetailVM
     {
