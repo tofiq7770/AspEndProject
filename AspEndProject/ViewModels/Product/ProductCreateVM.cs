@@ -19,6 +19,10 @@ namespace AspEndProject.Areas.ViewModels.Products
         public string Origin { get; set; }
         [Required]
         public string Quality { get; set; }
+
+        [Range(1, 5, ErrorMessage = "Value must be at least 1 and Max 5")]
+        public int? Rating { get; set; } = 0;
+
         [Required]
         public string Check { get; set; }
         public List<IFormFile> Images { get; set; }

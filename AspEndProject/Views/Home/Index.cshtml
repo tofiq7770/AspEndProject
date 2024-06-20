@@ -19,7 +19,7 @@
 }
 <!-- Hero Start -->
 <div class="container-fluid py-5 mb-5 hero-header">
-      <div class="container py-5">
+    <div class="container py-5">
         <div class="row g-5 align-items-center">
             <div class="col-md-12 col-lg-7">
                 <h4 class="mb-3 text-secondary">@Model.SliderInfo.SubTitle</h4>
@@ -32,15 +32,16 @@
             <div class="col-md-12 col-lg-5">
                 <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
                     <div class="carousel-inner" role="listbox">
-                        
-                        @foreach( var item in Model.Sliders){
+
+                        @foreach (var item in Model.Sliders)
+                        {
                             string active = "active";
                             if (item != Model.Sliders.FirstOrDefault(item))
                             {
                                 active = "";
                             }
                             <div class="carousel-item rounded @active">
-                                <img src="~/img/@item.Image" class="img-fluid w-100 h-100 rounded" >
+                                <img src="~/img/@item.Image" class="img-fluid w-100 h-100 rounded">
                                 <a href="#" class="btn px-4 py-2 text-white rounded">@item.Name</a>
                             </div>
 
@@ -138,12 +139,6 @@
                                                         </button>
                                                     </form>
 
-                                                    @* <form asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
-                                                        <button class="addToCartBtn btn border border-secondary rounded-pill px-3 text-primary" basket-id="@item.Id">
-                                                        <i class="fa fa-shopping-bag me-2 text-primary">
-                                                        </i> Add to cart
-                                                        </button>
-                                                        </form>*@
                                                 </div>
                                             </div>
                                         </div>
@@ -196,11 +191,11 @@
                 {
 
                     <div class="border border-primary rounded position-relative vesitable-item">
-                       <a asp-action="ProductDetail" asp-controller="Shop" asp-route-id="@item.Id" >
+                        <a asp-action="ProductDetail" asp-controller="Shop" asp-route-id="@item.Id">
                             <div class="vesitable-img">
-                            <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid w-100 rounded-top" alt="">
-                        </div>
-                       </a>
+                                <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid w-100 rounded-top" alt="">
+                            </div>
+                        </a>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">@item.Category.Name</div>
                         <div class="p-4 rounded-bottom">
                             <h4>@item.Name</h4>
@@ -271,11 +266,15 @@
                             <div class="col-6">
                                 <a href="#" class="h5">@item.Name</a>
                                 <div class="d-flex my-3">
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star text-primary"></i>
-                                    <i class="fas fa-star"></i>
+                                    @for (int i = 0; i < item.Rating; i++)
+                                    {
+                                        <i class="fas fa-star text-primary"></i>
+                                    }
+
+                                    @for (int i = 0; i < Math.Abs((int)item.Rating - 5); i++)
+                                    {
+                                        <i class="fas fa-star"></i>
+                                    }
                                 </div>
                                 <h4 class="mb-3">@item.Price.ToString("N2")$</h4>
                                 <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
@@ -298,11 +297,15 @@
                         <div class="py-4">
                             <a href="#" class="h5">Organic @item.Name</a>
                             <div class="d-flex my-3 justify-content-center">
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star text-primary"></i>
-                                <i class="fas fa-star"></i>
+                                  @for (int i = 0; i < item.Rating; i++)
+                                    {
+                                        <i class="fas fa-star text-primary"></i>
+                                    }
+
+                                    @for (int i = 0; i < Math.Abs((int)item.Rating - 5); i++)
+                                    {
+                                        <i class="fas fa-star"></i>
+                                    }
                             </div>
                             <h4 class="mb-3">@item.Price.ToString("N2")$</h4>
                             <form id="addToCartForm-@item.Id" asp-controller="Basket" asp-action="Add" asp-route-productId="@item.Id" basket-id="@item.Id">
@@ -333,6 +336,7 @@
                             <h1>@item.NumberInfo</h1>
                         </div>
                     </div>
+
                 }
             </div>
         </div>
@@ -428,4 +432,4 @@
         </div>
     </div>
 </div>
-<!-- Tastimonial End -->
+

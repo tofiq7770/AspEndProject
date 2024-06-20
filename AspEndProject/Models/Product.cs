@@ -12,6 +12,7 @@ namespace AspEndProject.Models
         public decimal Weight { get; set; }
         public string Origin { get; set; }
         public string Quality { get; set; }
+        public int? Rating { get; set; } = 0;
         public string Сheck { get; set; }
         [Column(TypeName = "decimal(18, 6)")]
         public decimal MinWeight { get; set; }

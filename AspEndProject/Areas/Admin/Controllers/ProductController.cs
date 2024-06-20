@@ -28,7 +28,21 @@ namespace AspEndProject.Areas.Admin.Controllers
         {
 
             List<Product> products = await _productService.GetAllAsync();
-            List<ProductVM> model = products.Select(m => new ProductVM { Id = m.Id, Name = m.Name, Image = m.ProductImages.FirstOrDefault(m => m.IsMain)?.Image, MinWeight = m.MinWeight, Weight = m.Weight, Price = m.Price, Origin = m.Origin, Check = m.Сheck, Quality = m.Quality, Description = m.Description, Category = m.Category.Name }).ToList();
+            List<ProductVM> model = products.Select(m => new ProductVM
+            {
+                Id = m.Id,
+                Name = m.Name,
+                Image = m.ProductImages.FirstOrDefault(m => m.IsMain)?.Image,
+                MinWeight = m.MinWeight,
+                Weight = m.Weight,
+                Price = m.Price,
+                Origin = m.Origin,
+                Rating = m.Rating,
+                Check = m.Сheck,
+                Quality = m.Quality,
+                Description = m.Description,
+                Category = m.Category.Name
+            }).ToList();
             return View(model);
 
         }
@@ -60,6 +74,7 @@ namespace AspEndProject.Areas.Admin.Controllers
                 Images = productImages,
                 Quality = product.Quality,
                 Check = product.Сheck,
+                Rating = product.Rating,
                 MinWeight = product.MinWeight,
                 Weight = product.Weight
 
@@ -123,6 +138,7 @@ namespace AspEndProject.Areas.Admin.Controllers
                 Weight = request.Weight,
                 MinWeight = request.MinWeight,
                 Origin = request.Origin,
+                Rating = request.Rating,
                 Сheck = request.Check,
                 Quality = request.Quality
 
@@ -163,6 +179,7 @@ namespace AspEndProject.Areas.Admin.Controllers
                 Origin = product.Origin,
                 Check = product.Сheck,
                 Quality = product.Quality,
+                Rating = product.Rating,
                 MinWeight = product.MinWeight,
                 CategoryId = product.CategoryId
             });
@@ -227,6 +244,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             existProduct.Weight = ProductUpdateVM.Weight;
             existProduct.MinWeight = ProductUpdateVM.MinWeight;
             existProduct.Origin = ProductUpdateVM.Origin;
+            existProduct.Rating = ProductUpdateVM.Rating;
             existProduct.Сheck = ProductUpdateVM.Check;
             existProduct.CategoryId = (int)ProductUpdateVM.CategoryId;
 
