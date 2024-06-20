@@ -36,7 +36,8 @@ namespace AspEndProject.Controllers
                 FactContents = await _context.FactContents.ToListAsync(),
                 ServiceContents = await _context.ServiceContents.ToListAsync(),
                 Fresh = await _context.Freshs.FirstOrDefaultAsync(),
-                Features = await _context.Features.ToListAsync()
+                Features = await _context.Features.ToListAsync(),
+                Review = await _context.Reviews.Include(m => m.AppUser).ToListAsync(),
             };
 
             return View(model);

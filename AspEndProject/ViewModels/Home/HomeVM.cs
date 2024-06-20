@@ -13,5 +13,6 @@ namespace AspEndProject.ViewModels.Home
         public List<Feature> Features { get; set; }
         public List<ServiceContent> ServiceContents { get; set; }
         public Fresh Fresh { get; set; }
+        public List<Review> Review { get; set; }
     }
 }

@@ -20,6 +20,33 @@
         }
     })
 
+    // Add-comment
+    $(document).on("click", ".add-comment", function (e) {
+        e.preventDefault();
+        const productId = $(this).attr('product-id');
+        const message = $(this).closest('form').find('.message').val();
+        const comments = $('.comments');
+
+        $.ajax({
+            type: "Post",
+            url: `/Shop/AddComment?productId=${productId}&message=${message}`,
+            success: (res) => {
+                if (!res.redirectUrl) {
+                    Swal.fire({
+                        icon: "success",
+                        title: "Your review has been added!",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
+                    comments.prepend(res);
+                } else {
+                    window.location.href = res.redirectUrl;
+                }
+            }
+        });
+    });
+
     // Basket delete
     $('.basket-delete').on('click', function (e) {
         e.preventDefault();
@@ -55,10 +82,6 @@
             }
         });
     });
-
-
-
-
 
 
 
@@ -173,6 +196,7 @@
             }
         }
     });
+
 
 
     // Modal Video

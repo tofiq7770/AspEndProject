@@ -21,11 +21,15 @@
                         <p class="mb-3">Category: @Model.Product.Category.Name</p>
                         <h5 class="fw-bold mb-3">@Model.Product.Price.ToString("N2") $</h5>
                         <div class="d-flex mb-4">
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star text-secondary"></i>
-                            <i class="fa fa-star"></i>
+                            @for (int i = 0; i < Model.Product.Rating; i++)
+                            {
+                                <i class="fas fa-star text-primary"></i>
+                            }
+
+                            @for (int i = 0; i < Math.Abs((int)Model.Product.Rating - 5); i++)
+                            {
+                                <i class="fas fa-star"></i>
+                            }
                         </div>
                         <p class="mb-4">@Model.Product.Description</p>
                         <p class="mb-4">
@@ -121,47 +125,31 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
-                                <div class="d-flex">
-                                    <img src="~/img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
-                                    <div class="">
-                                        <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
-                                        <div class="d-flex justify-content-between">
-                                            <h5>Jason Smith</h5>
-                                            <div class="d-flex mb-3">
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star"></i>
+                            <div class="tab-pane comments" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                @foreach (var item in Model.Product.Reviews)
+                                {
+                                    <div class="d-flex" style="gap: 20px">
+                                        <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+                                        <div class="">
+                                            <p class="mb-2" style="font-size: 14px;">@item.CreateDate.ToString("MMMM dd, yyyy")</p>
+                                            <div class="d-flex justify-content-between">
+                                                <h5>@item.AppUser.FullName</h5>
+                                                <div class="d-flex mb-3">
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
+                                                    <i class="fa fa-star"></i>
+                                                </div>
                                             </div>
+                                            <p>@item.Message</p>
                                         </div>
-                                        <p>
-                                            The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
-                                            words etc. Susp endisse ultricies nisi vel quam suscipit
-                                        </p>
+
+                                        <button class="@(ViewBag.AppUserId != item.AppUserId ? "d-none" : "") delete-comment btn btn-md rounded-circle bg-light border mt-4" style="width: 35px; height: 35px;" id="@item.Id">
+                                            <i class="fa fa-times text-danger"></i>
+                                        </button>
                                     </div>
-                                </div>
-                                <div class="d-flex">
-                                    <img src="~/img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
-                                    <div class="">
-                                        <p class="mb-2" style="font-size: 14px;">April 12, 2024</p>
-                                        <div class="d-flex justify-content-between">
-                                            <h5>Sam Peters</h5>
-                                            <div class="d-flex mb-3">
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star text-secondary"></i>
-                                                <i class="fa fa-star"></i>
-                                                <i class="fa fa-star"></i>
-                                            </div>
-                                        </div>
-                                        <p class="text-dark">
-                                            The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
-                                            words etc. Susp endisse ultricies nisi vel quam suscipit
-                                        </p>
-                                    </div>
-                                </div>
+                                }
                             </div>
                             <div class="tab-pane" id="nav-vision" role="tabpanel">
                                 <p class="text-dark">
@@ -175,22 +163,15 @@
                             </div>
                         </div>
                     </div>
-                    <form action="#">
+                    <form>
                         <h4 class="mb-5 fw-bold">Leave a Reply</h4>
                         <div class="row g-4">
-                            <div class="col-lg-6">
-                                <div class="border-bottom rounded">
-                                    <input type="text" class="form-control border-0 me-4" placeholder="Your Name *">
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="border-bottom rounded">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email *">
-                                </div>
-                            </div>
                             <div class="col-lg-12">
                                 <div class="border-bottom rounded my-4">
-                                    <textarea name="" id="" class="form-control border-0" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
+                                    <textarea
+                                              class="form-control border-0 message" cols="30" rows="8"
+                                              placeholder="Your Review *" spellcheck="false">
+                                    </textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">
@@ -205,7 +186,9 @@
                                             <i class="fa fa-star"></i>
                                         </div>
                                     </div>
-                                    <a href="#" class="btn border border-secondary text-primary rounded-pill px-4 py-3"> Post Comment</a>
+                                    <button product-id="@Model.Product.Id" class="add-comment btn border border-secondary add-review text-primary rounded-pill px-4 py-3">
+                                        Post Comment
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -248,11 +231,15 @@
                                 <div class="mx-3">
                                     <h6 class="mb-2">@item.Name</h6>
                                     <div class="d-flex mb-2">
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star text-secondary"></i>
-                                        <i class="fa fa-star"></i>
+                                        @for (int i = 0; i < item.Rating; i++)
+                                        {
+                                            <i class="fas fa-star text-primary"></i>
+                                        }
+
+                                        @for (int i = 0; i < Math.Abs((int)item.Rating - 5); i++)
+                                        {
+                                            <i class="fas fa-star"></i>
+                                        }
                                     </div>
                                     <div class="d-flex mb-2">
                                         <h5 class="fw-bold me-2">@((item.Price).ToString("N2")) $</h5>
@@ -286,7 +273,7 @@
 
                         <a asp-action="ProductDetail" asp-controller="Shop" asp-route-id="@item.Id">
                             <div class="vesitable-img">
-                                <img src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid w-100 rounded-top" alt="">
+                                <img style="height:215px" src="~/img/@item.ProductImages.FirstOrDefault(m=>m.IsMain).Image" class="img-fluid w-100 rounded-top" alt="">
                             </div>
                         </a>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute" style="top: 10px; right: 10px;">@item.Category.Name</div>

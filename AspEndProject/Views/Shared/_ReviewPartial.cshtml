@@ -1,0 +1,23 @@
+﻿@model Review
+
+<div class="d-flex" style="gap: 20px">
+    <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+    <div class="">
+        <p class="mb-2" style="font-size: 14px;">@Model.CreateDate.ToString("MMMM dd, yyyy")</p>
+        <div class="d-flex justify-content-between">
+            <h5>@Model.AppUser.FullName</h5>
+            <div class="d-flex mb-3">
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star text-secondary"></i>
+                <i class="fa fa-star"></i>
+            </div>
+        </div>
+        <p>@Model.Message</p>
+    </div>
+
+    <button class="@(ViewBag.AppUserId != Model.AppUserId ? "d-none" : "") delete-comment btn btn-md rounded-circle bg-light border mt-4" style="width: 35px; height: 35px;" id="@Model.Id">
+        <i class="fa fa-times text-danger"></i>
+    </button>
+</div>
