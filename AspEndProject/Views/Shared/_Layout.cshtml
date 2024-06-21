@@ -57,149 +57,280 @@
 
 
     <script>
-    $(function () {
-        $('form[id^="addToCartForm-"]').submit(function (event) {
-            event.preventDefault(); 
+                                    $(function () {
+                                        $('form[id^="addToCartForm-"]').submit(function (event) {
+                                            event.preventDefault();
 
-            var form = $(this);
-            var url = form.attr('action');
-            var productId = form.attr('asp-route-productId');
+                                            var form = $(this);
+                                            var url = form.attr('action');
+                                            var productId = form.attr('asp-route-productId');
 
-            $.post(url, { productId: productId })
-                .done(function (response) {
-                    if (response.success) {
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Success',
-                            text: response.message,
-                            showConfirmButton: false,
-                            timer: 800
-                        }).then(function () {
+                                            $.post(url, { productId: productId })
+                                                .done(function (response) {
+                                                    if (response.success) {
+                                                        Swal.fire({
+                                                            icon: 'success',
+                                                            title: 'Success',
+                                                            text: response.message,
+                                                            showConfirmButton: false,
+                                                            timer: 800
+                                                        }).then(function () {
+                                                        });
+                                                    } else {
+                                                        Swal.fire({
+                                                            icon: 'error',
+                                                            title: 'Error',
+                                                            text: 'You Should Login First'
+                                                        });
+                                                    }
+                                                })
+                                                .fail(function () {
+                                                    Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Error',
+                                                        text: 'Failed to add product to cart. Please try again later.'
+                                                    });
+                                                });
+                                        });
+                                    });
+
+
+                                    $(document).on('click', '.category', function (e) {
+                                        $(this).addClass('active').siblings().removeClass('active');
+                                        e.preventDefault();
+                                        const category = $(this).attr('category-id');
+                                        const products = $('.fruite-item');
+
+                                        products.each(function () {
+                                            if (category === $(this).attr('category-id')) {
+                                                $(this).parent().fadeIn();
+                                            }
+                                            else {
+                                                $(this).parent().hide();
+                                            }
+                                        })
+
+                                        if (category == 'All') {
+                                            products.parent().fadeIn();
+                                        }
+                                    });
+
+
+                                    // Tab-menu
+                                    $(document).on('click', '.categories .category', function (e) {
+                                        e.preventDefault();
+                                        let category = $(this).attr('category-id');
+                                        let products = $('.fruite-item');
+
+                                        products.each(function () {
+                                            if (category == $(this).attr('category-id')) {
+                                                $(this).parent().fadeIn();
+                                            }
+                                            else {
+                                                $(this).parent().hide();
+                                            }
+                                        })
+                                        if (category == 'All') {
+                                            products.parent().fadeIn();
+                                        }
+                                    })
+
+                                    // Category filter
+                                    $('.category-filter').on('click', function () {
+                                        const categoryId = $(this).attr('category-id');
+
+                                        $(".products .product-item").slice(0).remove();
+
+                                        $.ajax({
+                                            type: "Get",
+                                            url: `Shop/CategoryFilter?id=${categoryId}`,
+                                            success: function (res) {
+                                                $('.products').append(res);
+                                            },
+                                        });
+                                    });
+
+                                    //Price filter
+                                    $('.form-range').on('change', function () {
+                                        const value = $(this).val().trim();
+
+                                        $(".products .product-item").slice(0).remove();
+
+                                        $.ajax({
+                                            type: "Get",
+                                            url: `Shop/PriceFilter?price=${value}`,
+                                            success: function (res) {
+                                                $('.products').append(res);
+                                            },
+                                        });
+                                    });
+
+                                    // Search
+                                    $(document).on("keyup", ".search", function () {
+                                        const value = $(this).val().trim();
+
+
+                                        $(".products .product-item").slice(0).remove();
+
+                                        $.ajax({
+                                            type: "Get",
+                                            url: `Shop/Search?searchText=${value}`,
+                                            success: function (res) {
+                                                $(".products").append(res);
+                                            }
+                                        });
+                                    });
+
+                                    //Sorting
+                                    $('#fruits').on('change', function () {
+                                        const value = $(this).val().trim();
+
+                                        $(".products .product-item").slice(0).remove();
+
+                                        $.ajax({
+                                            type: "Get",
+                                            url: "Shop/Sorting",
+                                            data: { sort: value },
+                                            success: function (res) {
+                                                $('.products').append(res);
+                                            },
+                                        });
+                                    });
+                                    // Increase
+                                $(document).on("click", ".btn-plus", function () {
+                            const id = $(this).attr('id');
+                            const btn = $(this);
+
+                            $.ajax({
+                                type: "Post",
+                                url: `Basket/Increase?id=${id}`,
+                                success: function (res) {
+                                    btn.closest(".basket-item").find(".total").text(res.totalPrice + ' $');
+
+                                    const count = $(".basket-count");
+                                    count.text(parseInt(count.text()) + 1);
+
+                                    let total = 0;
+                                    $(".basket-item .total").each(function () {
+                                        total += parseFloat($(this).text().replace('$', ''));
+                                    });
+
+                                    $(".total-price").text('$' + total.toFixed(2));
+                                    Swal.fire({
+                                        title: "Updated!",
+                                        text: "Quantity increased successfully.",
+                                        icon: "success",
+                                        timer: 800,
+                                        timerProgressBar: true,
+                                        showConfirmButton: false
+                                    });
+                                }
+                            });
                         });
-                    } else {
-                        Swal.fire({
-                            icon: 'error',
-                            title: 'Error',
-                            text: 'You Should Login First'
-                        });
-                    }
-                })
-                .fail(function () {
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Error',
-                        text: 'Failed to add product to cart. Please try again later.'
+                        // Decrease
+                $(document).on("click", ".btn-minus", function () {
+                    const id = $(this).attr('id');
+                    const btn = $(this);
+
+                    $.ajax({
+                        type: "Post",
+                        url: `Basket/Decrease?id=${id}`,
+                        success: function (res) {
+                            const basketItem = btn.closest(".basket-item");
+
+                            if (basketItem.find(".quantity input").val() == 0) {
+                                basketItem.remove();
+                            } else {
+                                basketItem.find(".total").text(res.totalPrice + ' $');
+                            }
+
+                            const count = $(".basket-count");
+                            count.text(parseInt(count.text()) - 1);
+
+                            let total = 0;
+                            $(".basket-item .total").each(function () {
+                                total += parseFloat($(this).text().replace('$', ''));
+                            });
+
+                            $(".total-price").text('$' + total.toFixed(2));
+
+                            Swal.fire({
+                                title: "Updated!",
+                                text: "Quantity decreased successfully.",
+                                icon: "success",
+                                timer: 800,
+                                timerProgressBar: true,
+                                showConfirmButton: false
+                            });
+                        }
                     });
                 });
-        });
-    });
-    
-
-    $(document).on('click', '.category', function (e) {
-        $(this).addClass('active').siblings().removeClass('active');
-        e.preventDefault();
-        const category = $(this).attr('category-id');
-        const products = $('.fruite-item');
-
-        products.each(function () {
-            if (category === $(this).attr('category-id')) {
-                $(this).parent().fadeIn();
-            }
-            else {
-                $(this).parent().hide();
-            }
-        })
-
-        if (category == 'All') {
-            products.parent().fadeIn();
+        function updateCartContent() {
+            $.ajax({
+                url: "/Basket/GetCart",
+                type: "GET",
+                success: function (data) {
+                    if (data.trim() === "") {
+                        $("#cart-content").html('<div class="container py-5 text-center">' +
+                            '<h3>Your cart is empty.</h3>' +
+                            '<p>Please add items to your cart to proceed.</p>' +
+                            '<a  asp-controller="Home" asp-action="Index" class="btn btn-primary">Back to Shopping</a>' +
+                            '</div>');
+                    } else {
+                        $("#cart-content").html(data);
+                    }
+                },
+                error: function () {
+                    console.log("Error fetching cart data.");
+                }
+            });
         }
-    });
 
+        // Delete
+        $(document).on("click", ".delete-basket", function () {
+            const id = $(this).attr('id');
+            const btn = $(this);
 
-    // Tab-menu
-    $(document).on('click', '.categories .category', function (e) {
-        e.preventDefault();
-        let category = $(this).attr('category-id');
-        let products = $('.fruite-item');
+            Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!"
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $.ajax({
+                        type: "Post",
+                        url: `Basket/Delete?id=${id}`,
+                        success: function (res) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your product was removed from cart.",
+                                icon: "success"
+                            });
 
-        products.each(function () {
-            if (category == $(this).attr('category-id')) {
-                $(this).parent().fadeIn();
-            }
-            else {
-                $(this).parent().hide();
-            }
-        })
-        if (category == 'All') {
-            products.parent().fadeIn();
-        }
-    }) 
+                            btn.closest(".basket-item").remove();
+                            const count = $(".basket-count");
+                            count.text(parseInt(count.text()) - 1);
+                            $(".total-price").text("$" + res);
 
-    // Category filter
-    $('.category-filter').on('click', function () {
-        const categoryId = $(this).attr('category-id');
-
-        $(".products .product-item").slice(0).remove();
-
-        $.ajax({
-            type: "Get",
-            url: `Shop/CategoryFilter?id=${categoryId}`,
-            success: function (res) {
-                $('.products').append(res);
-            },
+                            updateCartContent();
+                        },
+                        error: function () {
+                            Swal.fire({
+                                title: "Error!",
+                                text: "Failed to delete the product.",
+                                icon: "error"
+                            });
+                        }
+                    });
+                }
+            });
         });
-    });
 
-    //Price filter
-    $('.form-range').on('change', function () {
-        const value = $(this).val().trim();
-
-        $(".products .product-item").slice(0).remove();
-
-        $.ajax({
-            type: "Get",
-            url: `Shop/PriceFilter?price=${value}`,
-            success: function (res) {
-                $('.products').append(res);
-            },
-        });
-    });
-
-    // Search
-    $(document).on("keyup", ".search", function () {
-        const value = $(this).val().trim();
-
-
-        $(".products .product-item").slice(0).remove();
-
-        $.ajax({
-            type: "Get",
-            url: `Shop/Search?searchText=${value}`,
-            success: function (res) {
-                $(".products").append(res);
-            }
-        });
-    });
-
-    //Sorting
-    $('#fruits').on('change', function () {
-        const value = $(this).val().trim();
-
-        $(".products .product-item").slice(0).remove();
-
-        $.ajax({
-            type: "Get",
-            url: "Shop/Sorting",
-            data: { sort: value },
-            success: function (res) {
-                $('.products').append(res);
-            },
-        });
-    });
-
-
-
-</script>
+    </script>
 
 
 

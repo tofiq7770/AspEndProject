@@ -47,49 +47,6 @@
         });
     });
 
-
-
-
-    // Basket Delete
-    $('.basket-delete').on('click', function (e) {
-        e.preventDefault();
-
-        const basketBtn = $(this);
-
-        Swal.fire({
-            title: "Are you sure?",
-            text: "You won't be able to revert this!",
-            icon: "warning",
-            showCancelButton: true,
-            confirmButtonColor: "#3085d6",
-            cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
-        }).then((result) => {
-            if (result.isConfirmed) {
-                const categoryId = $(this).attr('basket-id');
-
-                $.ajax({
-                    type: "Post",
-                    url: "Basket/Delete",
-                    data: { id: categoryId },
-                    success: function (res) {
-                        Swal.fire({
-                            title: "Deleted!",
-                            text: "Your product was removed from cart.",
-                            icon: "success"
-                        });
-
-                        basketBtn.parent().parent().remove();
-                    },
-                });
-            }
-        });
-    });
-
-
-
-
-
     // Spinner
     var spinner = function () {
         setTimeout(function () {

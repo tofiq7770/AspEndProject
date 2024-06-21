@@ -117,8 +117,83 @@ namespace AspEndProject.Controllers
             return Json(new { success = true, message = "Product added to cart." });
         }
 
+
+
         [HttpPost]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Increase(int id)
+        {
+            if (id == null)
+                return RedirectToAction("NotFound", "Error");
+
+            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (basketProduct == null)
+                return RedirectToAction("NotFound", "Error");
+
+            basketProduct.Quantity++;
+            await _context.SaveChangesAsync();
+
+            decimal totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
+            decimal total = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Quantity);
+
+            return Ok(new { totalPrice, total });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Decrease(int id)
+        {
+            if (id == null)
+                return RedirectToAction("NotFound", "Error");
+
+            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (basketProduct == null)
+                return RedirectToAction("NotFound", "Error");
+
+            if (basketProduct.Quantity > 1)
+            {
+                basketProduct.Quantity--;
+            }
+            else
+            {
+                _context.BasketProducts.Remove(basketProduct);
+                await _context.SaveChangesAsync();
+            }
+
+            await _context.SaveChangesAsync();
+
+            decimal totalPrice = basketProduct.Product.Price * basketProduct.Quantity;
+            decimal total = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Quantity);
+
+            return Ok(new { totalPrice, total });
+        }
+
+
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return RedirectToAction("NotFound", "Error");
+
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("SignIn", "Account");
+
+            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (basketProduct == null)
+                return RedirectToAction("NotFound", "Error");
+
+            _context.BasketProducts.Remove(basketProduct);
+            await _context.SaveChangesAsync();
+            var data = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Product.Price * m.Quantity);
+            return Ok(data);
+        }
+        public async Task<IActionResult> GetCart()
         {
             AppUser existUser = new();
 
@@ -129,13 +204,21 @@ namespace AspEndProject.Controllers
                 existUser = await _userManager.FindByNameAsync(User.Identity.Name);
             }
 
-            BasketProduct basketProduct = await _context.BasketProducts
-                .FirstOrDefaultAsync(m => m.Id == id && m.Basket.AppUserId == existUser.Id);
+            Basket basket = await _context.Baskets?
+                .Include(m => m.BasketProducts)
+                .ThenInclude(m => m.Product)
+                .ThenInclude(m => m.ProductImages)
+                .FirstOrDefaultAsync(m => m.AppUserId == existUser.Id);
 
-            _context.BasketProducts.Remove(basketProduct);
-            await _context.SaveChangesAsync();
 
-            return Ok();
+            if (basket.BasketProducts.Count == 0)
+            {
+                return Content("");
+            }
+
+            return View();
         }
+
+
     }
 }
