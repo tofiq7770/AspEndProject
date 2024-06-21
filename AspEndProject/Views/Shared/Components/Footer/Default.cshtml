@@ -18,10 +18,10 @@
                 </div>
                 <div class="col-lg-3">
                     <div class="d-flex justify-content-end pt-3">
-                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="@*@Model.Settings["Twitter"] *@ "></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class=" @*@Model.Settings["Facebook"]*@  "></i></a>
-                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class=" @*@Model.Settings["Youtube"] *@ "></i></a>
-                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="      @*@Model.Settings["Linkedin"]*@  "></i></a>
+                        <a class="btn  btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class="@Model.Settings["Twitter"]  "></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class=" @Model.Settings["Facebook"]  "></i></a>
+                        <a class="btn btn-outline-secondary me-2 btn-md-square rounded-circle" href=""><i class=" @Model.Settings["YouTube"]  "></i></a>
+                        <a class="btn btn-outline-secondary btn-md-square rounded-circle" href=""><i class="      @Model.Settings["Linkedin"]  "></i></a>
                     </div>
                 </div>
             </div>
@@ -62,11 +62,13 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="text-light mb-3">Contact</h4>
-                    <p>Address: @*@Model.Settings["Address"]*@</p>
-                    <p>Email: @*@Model.Settings["Email"]*@</p>
-                    <p>Phone: @*@Model.Settings["Phone"]*@</p>
+                    <p>Address:  @Model.Settings["Address"]</p>
+                    <p>Email:  @Model.Settings["Email"]</p>
+                    <p>Phone:  @Model.Settings["Phone"]</p>
                     <p>Payment Accepted</p>
-                    <img src="~/img/@*@Model.Settings["Payment"]*@" class="img-fluid" alt="">
+                    <a asp-action="Login" asp-controller="Account">
+                    <img src="~/img/@Model.Settings["Payment"]" class="img-fluid" alt="">
+                    </a>
                 </div>
             </div>
         </div>
