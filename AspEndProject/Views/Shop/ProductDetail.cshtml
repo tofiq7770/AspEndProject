@@ -129,7 +129,7 @@
                                 @foreach (var item in Model.Product.Reviews)
                                 {
                                     <div class="d-flex" style="gap: 20px">
-                                        <img src="~/img/logoFruitable.png" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+                                        <img src="~/img/@item.AppUser.Image" image-id="~/img/@item.AppUser.Image" class="img-fluid rounded-circle p-3" style="width: 99px; height: 100px;" alt="">
                                         <div class="">
                                             <p class="mb-2" style="font-size: 14px;">@item.CreateDate.ToString("MMMM dd, yyyy")</p>
                                             <div class="d-flex justify-content-between">
@@ -139,7 +139,7 @@
                                                     <i class="fa fa-star text-secondary"></i>
                                                     <i class="fa fa-star text-secondary"></i>
                                                     <i class="fa fa-star text-secondary"></i>
-                                                    <i class="fa fa-star"></i>
+                                                    <i class="fa fa-star text-secondary"></i>
                                                 </div>
                                             </div>
                                             <p>@item.Message</p>
@@ -206,7 +206,7 @@
                                 {
                                     <li>
                                         <div class="d-flex justify-content-between fruite-name">
-                                            <a href="#"><i class="fas fa-apple-alt me-2"></i>@item.Name</a>
+                                            <a asp-action="Index" asp-controller="Shop"><i class="fas fa-apple-alt me-2"></i>@item.Name</a>
                                             <span>(@Model.Products.Where(m=>m.CategoryId== item.Id).Count())</span>
                                         </div>
                                     </li>

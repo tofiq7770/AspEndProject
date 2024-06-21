@@ -53,10 +53,13 @@
 
     @await Component.InvokeAsync("Footer")
 
+
+
+
     <script>
     $(function () {
         $('form[id^="addToCartForm-"]').submit(function (event) {
-            event.preventDefault(); // Prevent the form from submitting normally
+            event.preventDefault(); 
 
             var form = $(this);
             var url = form.attr('action');
@@ -90,7 +93,115 @@
                 });
         });
     });
+    
+
+    $(document).on('click', '.category', function (e) {
+        $(this).addClass('active').siblings().removeClass('active');
+        e.preventDefault();
+        const category = $(this).attr('category-id');
+        const products = $('.fruite-item');
+
+        products.each(function () {
+            if (category === $(this).attr('category-id')) {
+                $(this).parent().fadeIn();
+            }
+            else {
+                $(this).parent().hide();
+            }
+        })
+
+        if (category == 'All') {
+            products.parent().fadeIn();
+        }
+    });
+
+
+    // Tab-menu
+    $(document).on('click', '.categories .category', function (e) {
+        e.preventDefault();
+        let category = $(this).attr('category-id');
+        let products = $('.fruite-item');
+
+        products.each(function () {
+            if (category == $(this).attr('category-id')) {
+                $(this).parent().fadeIn();
+            }
+            else {
+                $(this).parent().hide();
+            }
+        })
+        if (category == 'All') {
+            products.parent().fadeIn();
+        }
+    }) 
+
+    // Category filter
+    $('.category-filter').on('click', function () {
+        const categoryId = $(this).attr('category-id');
+
+        $(".products .product-item").slice(0).remove();
+
+        $.ajax({
+            type: "Get",
+            url: `Shop/CategoryFilter?id=${categoryId}`,
+            success: function (res) {
+                $('.products').append(res);
+            },
+        });
+    });
+
+    //Price filter
+    $('.form-range').on('change', function () {
+        const value = $(this).val().trim();
+
+        $(".products .product-item").slice(0).remove();
+
+        $.ajax({
+            type: "Get",
+            url: `Shop/PriceFilter?price=${value}`,
+            success: function (res) {
+                $('.products').append(res);
+            },
+        });
+    });
+
+    // Search
+    $(document).on("keyup", ".search", function () {
+        const value = $(this).val().trim();
+
+
+        $(".products .product-item").slice(0).remove();
+
+        $.ajax({
+            type: "Get",
+            url: `Shop/Search?searchText=${value}`,
+            success: function (res) {
+                $(".products").append(res);
+            }
+        });
+    });
+
+    //Sorting
+    $('#fruits').on('change', function () {
+        const value = $(this).val().trim();
+
+        $(".products .product-item").slice(0).remove();
+
+        $.ajax({
+            type: "Get",
+            url: "Shop/Sorting",
+            data: { sort: value },
+            success: function (res) {
+                $('.products').append(res);
+            },
+        });
+    });
+
+
+
 </script>
+
+
 
 
     <!-- JavaScript Libraries -->
@@ -104,6 +215,7 @@
     <!-- Template Javascript -->
     <script src="~/js/main.js"></script>
 </body>
+
 
 </html>
 

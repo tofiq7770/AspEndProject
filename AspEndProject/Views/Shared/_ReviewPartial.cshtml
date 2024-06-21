@@ -1,7 +1,7 @@
 ﻿@model Review
 
 <div class="d-flex" style="gap: 20px">
-    <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+    <img src="~/img/@Model.AppUser.Image" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
     <div class="">
         <p class="mb-2" style="font-size: 14px;">@Model.CreateDate.ToString("MMMM dd, yyyy")</p>
         <div class="d-flex justify-content-between">

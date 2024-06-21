@@ -84,6 +84,7 @@ namespace AspEndProject.Controllers
 
             Review newReview = new()
             {
+                Image = existUser.Image,
                 Message = message,
                 ProductId = productId,
                 AppUserId = existUser.Id
@@ -94,5 +95,66 @@ namespace AspEndProject.Controllers
 
             return PartialView("_ReviewPartial", newReview);
         }
+
+
+
+        public async Task<IActionResult> Sorting(string sort)
+        {
+            IEnumerable<Product> products = await _productService.GetAllAsync();
+
+            switch (sort)
+            {
+                case "Old to New":
+                    products = products.OrderBy(m => m.Id);
+                    break;
+                case "Cheap to Expensive":
+                    products = products.OrderBy(m => m.Price);
+                    break;
+                case "Expensive to Cheap":
+                    products = products.OrderByDescending(m => m.Price);
+                    break;
+            }
+
+            ShopVM model = new() { Products = products };
+
+            return PartialView("_ProductsFilterPartial", model);
+        }
+
+
+        public async Task<IActionResult> Search(string searchText)
+        {
+            IEnumerable<Product> products = await _productService.GetAllAsync();
+
+            products = searchText != null
+                ? products.Where(m => m.Name.ToLower().Contains(searchText.ToLower()))
+                : products.Take(6);
+
+            ShopVM model = new() { Products = products };
+
+            return PartialView("_ProductsFilterPartial", model);
+        }
+
+        public async Task<IActionResult> CategoryFilter(int id)
+        {
+            IEnumerable<Product> products = await _productService.GetAllAsync();
+
+            ShopVM model = new() { Products = products.Where(m => m.CategoryId == id) };
+
+            return PartialView("_ProductsFilterPartial", model);
+        }
+
+        public async Task<IActionResult> PriceFilter(int price)
+        {
+            IEnumerable<Product> products = await _productService.GetAllAsync();
+            IEnumerable<Product> filteredProducts = price > 0
+                ? products.Where(p => p.Price <= price)
+                : products;
+            ShopVM model = new()
+            {
+                Products = filteredProducts.ToList()
+            };
+            return PartialView("_ProductsFilterPartial", model);
+        }
+
     }
 }

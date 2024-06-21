@@ -47,7 +47,10 @@
         });
     });
 
-    // Basket delete
+
+
+
+    // Basket Delete
     $('.basket-delete').on('click', function (e) {
         e.preventDefault();
 

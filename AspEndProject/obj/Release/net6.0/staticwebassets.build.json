@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bVcJJpj1jM2vaX0lIW4OexBE5LuqDg0fN4Sd+afPyzE=",
+  "Hash": "HwDlhZ5Wb25MvlBkIRNSyA+SDfDb4PrGUp3lBhXYsd8=",
   "Source": "AspEndProject",
   "BasePath": "_content/AspEndProject",
   "Mode": "Default",
@@ -3264,6 +3264,23 @@
       "OriginalItemSpec": "wwwroot\\img\\payment.png"
     },
     {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\Profile.jfif",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/Profile.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\Profile.jfif"
+    },
+    {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\single-item.jpg",
       "SourceId": "AspEndProject",
       "SourceType": "Discovered",
@@ -3296,6 +3313,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\testimonial-1.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\UserLogo.png",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/UserLogo.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\UserLogo.png"
+    },
+    {
+      "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\userlogo2.png",
+      "SourceId": "AspEndProject",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\",
+      "BasePath": "_content/AspEndProject",
+      "RelativePath": "img/userlogo2.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\userlogo2.png"
     },
     {
       "Identity": "C:\\Users\\tofiq\\Desktop\\AspEndProject\\AspEndProject\\wwwroot\\img\\vegetable-item-1.jpg",
