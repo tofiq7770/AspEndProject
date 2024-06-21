@@ -129,7 +129,7 @@
                                 @foreach (var item in Model.Product.Reviews)
                                 {
                                     <div class="d-flex" style="gap: 20px">
-                                        <img src="img/avatar.jpg" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
+                                        <img src="~/img/logoFruitable.png" class="img-fluid rounded-circle p-3" style="width: 100px; height: 100px;" alt="">
                                         <div class="">
                                             <p class="mb-2" style="font-size: 14px;">@item.CreateDate.ToString("MMMM dd, yyyy")</p>
                                             <div class="d-flex justify-content-between">
@@ -168,10 +168,7 @@
                         <div class="row g-4">
                             <div class="col-lg-12">
                                 <div class="border-bottom rounded my-4">
-                                    <textarea
-                                              class="form-control border-0 message" cols="30" rows="8"
-                                              placeholder="Your Review *" spellcheck="false">
-                                    </textarea>
+                                    <textarea class="form-control border-0 message" cols="30" rows="8" placeholder="Your Review *" spellcheck="false"></textarea>
                                 </div>
                             </div>
                             <div class="col-lg-12">

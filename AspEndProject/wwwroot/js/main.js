@@ -36,7 +36,7 @@
                         icon: "success",
                         title: "Your review has been added!",
                         showConfirmButton: false,
-                        timer: 1500
+                        timer: 1200
                     });
 
                     comments.prepend(res);
