@@ -1,6 +1,7 @@
 ﻿using AspEndProject.DAL;
 using AspEndProject.Models;
 using AspEndProject.ViewModels.Features;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,12 +15,15 @@ namespace AspEndProject.Areas.Admin.Controllers
         {
             _context = context;
         }
+
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             List<Feature> features = await _context.Features.ToListAsync();
             return View(features);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
 
         public async Task<IActionResult> Detail(int? id)
         {
@@ -34,11 +38,13 @@ namespace AspEndProject.Areas.Admin.Controllers
             };
             return View(model);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(FeatureCreateVM feature)
@@ -60,6 +66,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return BadRequest();
@@ -73,6 +80,7 @@ namespace AspEndProject.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Update(int? id)
         {
@@ -95,6 +103,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(FeatureUpdateVM update, int? id)

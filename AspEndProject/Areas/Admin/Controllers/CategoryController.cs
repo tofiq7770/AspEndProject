@@ -2,6 +2,7 @@
 using AspEndProject.Models;
 using AspEndProject.Services.Interface;
 using AspEndProject.ViewModels.Category;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             _categoryService = categoryService;
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
@@ -25,12 +27,14 @@ namespace AspEndProject.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(CategoryCreateVM request)
@@ -57,6 +61,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
 
         public async Task<IActionResult> Delete(int? id)
         {
@@ -70,6 +75,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Update(int? id)
         {
@@ -80,6 +86,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             return View(new CategoryUpdateVM { Id = category.Id, Name = category.Name });
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(CategoryUpdateVM request, int? id)
@@ -103,6 +110,7 @@ namespace AspEndProject.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Detail(int? id)
         {

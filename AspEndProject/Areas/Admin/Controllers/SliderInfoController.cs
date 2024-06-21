@@ -1,6 +1,7 @@
 ﻿using AspEndProject.DAL;
 using AspEndProject.Models;
 using AspEndProject.ViewModels.SliderInfos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,17 +15,21 @@ namespace AspEndProject.Areas.Admin.Controllers
         {
             _context = context;
         }
+
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             List<SliderInfo> sliderInfos = await _context.SliderInfos.ToListAsync();
             return View(sliderInfos);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id is null) return BadRequest();
@@ -38,6 +43,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             };
             return View(model);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(SliderInfoCreateVM sliderInfo)
@@ -59,6 +65,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null) return BadRequest();
@@ -72,6 +79,7 @@ namespace AspEndProject.Areas.Admin.Controllers
         }
 
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Update(int? id)
         {
@@ -93,6 +101,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(SliderInfoUpdateVM sliderInfo, int? id)

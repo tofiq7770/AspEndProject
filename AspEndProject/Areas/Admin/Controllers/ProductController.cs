@@ -3,6 +3,7 @@ using AspEndProject.DAL;
 using AspEndProject.Helpers.Extentions;
 using AspEndProject.Models;
 using AspEndProject.Services.Interface;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,6 +25,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             _env = env;
             _categoryService = categoryService;
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Index()
         {
 
@@ -47,6 +49,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
 
         public async Task<IActionResult> Detail(int? id)
@@ -82,6 +85,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             return View(model);
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Create()
         {
@@ -89,6 +93,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             return View();
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
 
@@ -149,6 +154,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
         }
 
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Update(int? id)
         {
@@ -186,7 +192,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
         }
 
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Update(ProductUpdateVM ProductUpdateVM, int? id)
@@ -252,7 +258,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             return RedirectToAction("Index");
         }
 
-
+        [Authorize(Roles = "SuperAdmin, Admin")]
 
         public async Task<IActionResult> Delete(int? id)
         {

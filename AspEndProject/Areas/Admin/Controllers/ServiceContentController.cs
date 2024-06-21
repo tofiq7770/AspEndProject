@@ -2,6 +2,7 @@
 using AspEndProject.Helpers.Extentions;
 using AspEndProject.Models;
 using AspEndProject.ViewModels.ServiceContents;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,17 +18,20 @@ namespace AspEndProject.Areas.Admin.Controllers
             _context = context;
             _env = env;
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public async Task<IActionResult> Index()
         {
             List<ServiceContent> serviceContent = await _context.ServiceContents.ToListAsync();
             return View(serviceContent);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpGet]
         public IActionResult Create()
         {
             return View();
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(ServiceContentCreateVM create)
@@ -58,6 +62,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Detail(int? id)
         {
             if (id is null) return BadRequest();
@@ -73,6 +78,7 @@ namespace AspEndProject.Areas.Admin.Controllers
             };
             return View(model);
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             if (id <= 0) return BadRequest();
@@ -89,6 +95,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         public async Task<IActionResult> Update(int id)
         {
             if (id == null) return BadRequest();
@@ -104,6 +111,7 @@ namespace AspEndProject.Areas.Admin.Controllers
 
 
         }
+        [Authorize(Roles = "SuperAdmin, Admin")]
         [HttpPost]
         public async Task<IActionResult> Update(int id, ServiceContentUpdateVM request)
         {
