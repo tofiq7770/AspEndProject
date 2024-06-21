@@ -250,3 +250,9 @@ C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\obj\Release\net6.0\refint\Asp
 C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\obj\Release\net6.0\AspEndProject.pdb
 C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\obj\Release\net6.0\AspEndProject.genruntimeconfig.cache
 C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\obj\Release\net6.0\ref\AspEndProject.dll
+C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\bin\Release\net6.0\BouncyCastle.Cryptography.dll
+C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\bin\Release\net6.0\MailKit.dll
+C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\bin\Release\net6.0\MimeKit.dll
+C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\bin\Release\net6.0\System.Formats.Asn1.dll
+C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\bin\Release\net6.0\System.Security.Cryptography.Pkcs.dll
+C:\Users\tofiq\Desktop\AspEndProject\AspEndProject\bin\Release\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.Pkcs.dll

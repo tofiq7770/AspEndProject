@@ -1,8 +1,12 @@
 ﻿using AspEndProject.Helpers.Enums;
 using AspEndProject.Models;
 using AspEndProject.ViewModels.Account;
+using MailKit.Net.Smtp;
+using MailKit.Security;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using MimeKit;
+using MimeKit.Text;
 
 namespace AspEndProject.Controllers
 {
@@ -49,9 +53,131 @@ namespace AspEndProject.Controllers
 
             await _userManager.AddToRoleAsync(user, UserRole.Member.ToString());
 
-            await _signInManager.SignInAsync(user, false);
-            return RedirectToAction("Index", "Home");
+            string token = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            string url = Url.Action(nameof(ConfirmEmail), "Account", new { userId = user.Id, token }, Request.Scheme, Request.Host.ToString());
+
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("tofigtn@code.edu.az"));
+            email.To.Add(MailboxAddress.Parse(user.Email));
+            email.Subject = "Register confirmation";
+            email.Body = new TextPart(TextFormat.Html)
+            {
+                Text = $@"
+        <!DOCTYPE html>
+        <html lang='en'>
+        <head>
+            <meta charset='UTF-8'>
+            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+            <title>Email Confirmation</title>
+            <style>
+                body {{
+                    font-family: 'Arial', sans-serif;
+                    background-color: #f0f0f0;
+                    margin: 0;
+                    padding: 0;
+                }}
+                .container {{
+                    max-width: 600px;
+                    margin: 20px auto;
+                    padding: 20px;
+                    background-color: #ffffff;
+                    border-radius: 8px;
+                    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+                }}
+                .header {{
+                    background-color: #4CAF50;
+                    color: white;
+                    text-align: center;
+                    padding: 20px 0;
+                    border-top-left-radius: 8px;
+                    border-top-right-radius: 8px;
+                }}
+                .content {{
+                    padding: 20px;
+                    text-align: center;
+                }}
+                .button {{
+                    display: inline-block;
+                    padding: 12px 24px;
+                    background-color: #4CAF50;
+                    color: white;
+                    text-decoration: none;
+                    border-radius: 5px;
+                    transition: background-color 0.3s ease;
+                }}
+                .button:hover {{
+                    background-color: #45a049;
+                }}
+                .footer {{
+                    margin-top: 20px;
+                    color: #666;
+                    text-align: center;
+                }}
+                .footer a {{
+                    color: #4CAF50;
+                    text-decoration: none;
+                }}
+                .footer a:hover {{
+                    text-decoration: underline;
+                }}
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <h2 style='margin-bottom: 10px;'>Confirm Your Email Address</h2>
+                    <p style='font-size: 16px;'>Thank you for registering with Fruitabless!</p>
+                </div>
+                <div class='content'>
+                    <p style='font-size: 18px;'>Dear {user.UserName},</p>
+                    <p style='font-size: 16px;'>Please click the button below to confirm your email address:</p>
+                    <p>
+                        <a href='{url}' class='button'>Confirm Email</a>
+                    </p>
+                    <p style='font-size: 16px;'>If you did not create an account with Fruitabless, please ignore this email.</p>
+                </div>
+                <div class='footer'>
+                    <p style='font-size: 14px;'>Best regards,<br/>The Fruitabless Team</p>
+                    <p style='font-size: 12px;'>© {DateTime.Now.Year} Fruitabless. All rights reserved.</p>
+                    <p style='font-size: 12px; margin-top: 10px;'>You are receiving this email because you signed up for an account at <a href='https://fruitabless.com' style='color: #4CAF50; text-decoration: none;'>fruitabless.com</a>. If you have any questions, please contact <a href='mailto:support@fruitabless.com' style='color: #4CAF50; text-decoration: none;'>support@fruitabless.com</a>.
+                </div>
+            </div>
+        </body>
+        </html>"
+            };
+
+
+
+            using var smtp = new SmtpClient();
+            smtp.Connect("smtp.gmail.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("tofigtn@code.edu.az", "hlew grzm pzgx ynhu");
+            smtp.Send(email);
+            smtp.Disconnect(true);
+
+            return RedirectToAction(nameof(VerifyEmail));
         }
+
+
+        [HttpGet]
+        public IActionResult VerifyEmail()
+        {
+
+            return View();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ConfirmEmail(string userId, string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            await _userManager.ConfirmEmailAsync(user, token);
+            return RedirectToAction(nameof(Login));
+        }
+
+
+
+
+
+
         [HttpGet]
         public IActionResult Login()
         {
