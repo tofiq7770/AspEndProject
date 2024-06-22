@@ -116,7 +116,26 @@ namespace AspEndProject.Controllers
 
             return Json(new { success = true, message = "Product added to cart." });
         }
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+                return RedirectToAction("NotFound", "Error");
 
+            if (!User.Identity.IsAuthenticated)
+                return RedirectToAction("SignIn", "Account");
+
+            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
+
+            if (basketProduct == null)
+                return RedirectToAction("NotFound", "Error");
+
+            _context.BasketProducts.Remove(basketProduct);
+            await _context.SaveChangesAsync();
+            var data = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Product.Price * m.Quantity);
+            return Ok(data);
+        }
 
 
         [HttpPost]
@@ -173,26 +192,6 @@ namespace AspEndProject.Controllers
         }
 
 
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-                return RedirectToAction("NotFound", "Error");
-
-            if (!User.Identity.IsAuthenticated)
-                return RedirectToAction("SignIn", "Account");
-
-            AppUser existUser = await _userManager.FindByNameAsync(User.Identity.Name);
-
-            BasketProduct basketProduct = await _context.BasketProducts.Include(m => m.Product).FirstOrDefaultAsync(m => m.Id == id);
-
-            if (basketProduct == null)
-                return RedirectToAction("NotFound", "Error");
-
-            _context.BasketProducts.Remove(basketProduct);
-            await _context.SaveChangesAsync();
-            var data = await _context.BasketProducts.Where(m => m.Basket.AppUserId == existUser.Id).SumAsync(m => m.Product.Price * m.Quantity);
-            return Ok(data);
-        }
         public async Task<IActionResult> GetCart()
         {
             AppUser existUser = new();
